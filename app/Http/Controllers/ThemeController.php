@@ -32,9 +32,9 @@ class ThemeController extends Controller
     }
 
 
-    public function edit(string $id)
+    public function edit()
     {
-        //
+        return view('pages.themes.edit');
     }
 
 
