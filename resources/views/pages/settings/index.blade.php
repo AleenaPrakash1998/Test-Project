@@ -31,7 +31,7 @@
                         </div>
                         <div class="d-flex justify-content-end gap-1">
                             <button type="submit" class="btn btn-primary">Save Changes</button>
-                            <button type="button" class="btn btn-outline-warning">Warning</button>
+                            <button type="button" class="btn btn-outline-secondary">Cancel</button>
                         </div>
                     </div>
                 </div>

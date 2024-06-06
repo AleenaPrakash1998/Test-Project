@@ -17,7 +17,9 @@
           class="template-customizer-theme-css"/>
     <link rel="stylesheet" href="{{asset('assets/css/demo.css')}}"/>
     <link href="{{ asset('assets/plugins/toastr/toastr.css') }}" rel="stylesheet"/>
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" rel="stylesheet">
+    <link href="https://www.jquery-az.com/boots/css/bootstrap-colorpicker/bootstrap-colorpicker.css" rel="stylesheet">
+    <link href="https://www.jquery-az.com/boots/css/bootstrap-colorpicker/main.css" rel="stylesheet">
 </head>
 <body>
 <div class="layout-wrapper layout-content-navbar">
@@ -66,6 +68,8 @@
 
     })(document, window, jQuery);
 </script>
+
+<script src="https://www.jquery-az.com/boots/js/bootstrap-colorpicker/bootstrap-colorpicker.js"></script>
 
 @stack('custom-scripts')
 </body>
