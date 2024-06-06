@@ -55,8 +55,8 @@
                     </li>
                     <li>
                         <a class="dropdown-item" href="{{ route('profile.edit') }}">
-                            <i class="bx bx-user me-2"></i>
-                            <span class="align-middle">Change Password</span>
+
+                            <span class="align-middle"> <i class="bx bx-user me-2 "></i>Change Password</span>
                         </a>
                     </li>
                     <li>
@@ -65,8 +65,7 @@
                             <a class="dropdown-item" href="#"
                                onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                <i class="bx bx-cog me-2"></i>
-                                <span class="align-middle">Logout</span>
+                                <span class="align-middle"> <i class='bx bx-log-out'></i> Logout</span>
                             </a>
                         </form>
 

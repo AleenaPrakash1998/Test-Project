@@ -217,6 +217,8 @@ h6, .h6 {
 p {
     margin-top: 0;
     margin-bottom: 1rem;
+    color:#7D7B7B;
+
 }
 
 abbr[title] {
@@ -2284,9 +2286,9 @@ progress {
 
 .form-label {
     margin-bottom: 0.5rem;
-    font-size: 0.75rem;
+    font-size: 14px!important;
     font-weight: 500;
-    color: #7D7B7B !important;
+    color: #4C5F74 !important;
 }
 
 .col-form-label {
@@ -4285,7 +4287,7 @@ textarea.form-control-lg {
     --bs-card-cap-padding-y: 1.5rem;
     --bs-card-cap-padding-x: 1.5rem;
     --bs-card-cap-bg: transparent;
-    --bs-card-cap-color: ;
+    --bs-card-cap-color: #C39F74;
     --bs-card-height: ;
     --bs-card-color: ;
     --bs-card-bg: #fff;
@@ -9429,7 +9431,6 @@ button:focus-visible {
 .form-label,
 .col-form-label {
     font-size: 0.75rem;
-    text-transform: uppercase;
     letter-spacing: inherit;
 }
 
@@ -18707,6 +18708,7 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
 
 .menu-vertical .menu-inner > .menu-item {
     margin: 0.0625rem 0;
+    margin-top: 17px!important;
 }
 
 .menu-vertical .menu-inner > .menu-item .menu-link {
@@ -18774,7 +18776,7 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
 }
 
 .menu-vertical .menu-sub .menu-link {
-    padding-left: 3rem;
+    padding-left: 2rem;
 }
 
 .menu-vertical .menu-sub .menu-sub .menu-link {

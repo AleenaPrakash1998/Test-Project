@@ -10,12 +10,16 @@
                             <p>Lorem ipsum dolor sit amet consectetur. Tristique pretium pulvinar diam enim.</p>
                         </div>
                         <div class="d-flex gap-2">
-                            <div><input type="text" class="form-control" id="filter-user-search" autocomplete="off"
+                            <div class="position-relative">
+                                <input type="text" class="form-control" id="filter-user-search" autocomplete="off"
                                         placeholder="Search.." data-dt-toggle="search"
                                         data-dt-target="#attributes-table">
+                                <span class="position-absolute" style="top: 10px;right: 8px"><i class='bx bx-search' ></i></span>
                             </div>
-                            <div>
-                                <button type="submit" class="btn btn-primary">Sync
+                            <div class="col-6">
+                                <button type="submit" class="btn btn-primary w-100"><span class="d-flex justify-content-center align-items-center">
+                                        <i class='bx bx-refresh' ></i> Sync
+                                    </span>
                                 </button>
                             </div>
                         </div>
@@ -78,7 +82,7 @@
                                 <span class="emp_name text-truncate text-secondary">
                                     <button type="button"
                                             class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
-                                            onclick="window.location.href='{{ route('themes.edit', 1) }}'">
+                                            onclick="openModal()">
                                         Edit&nbsp;
                                         <img src="{{ asset('assets/img/icons/unicons/edit.png') }}" alt="Icon"
                                              style="height: 20px; width: 20px; margin-right: 5px;">
@@ -359,6 +363,7 @@
                                 </span>
                             </div>
                         </td>
+
                     </tr>
                     </tbody>
                 </table>
@@ -395,4 +400,59 @@
             </ul>
         </div>
     </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <img src="{{ asset('assets/img/icons/unicons/modal.png') }}" alt="Icon">
+                        <h5 class="modal-title mt-4" id="exampleModalLabel">Edit Entity</h5>
+                        <p>Lorem ipsum lorem ipsum</p>
+
+                    </div>
+                    <form>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Entity</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Theme</label>
+                            <select class="form-control select2" name="" id="theme">
+                                <option>Choose</option>
+                                <option value="dfd">fg</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">API key</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Reference Key</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-outline-secondary">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
+
+@push('custom-scripts')
+    <script>
+        function openModal() {
+            var modal = new bootstrap.Modal(document.getElementById('exampleModal'));
+            modal.show();
+        }
+        $('#theme').select2({
+            width:'100%'
+        })
+    </script>
+@endpush
