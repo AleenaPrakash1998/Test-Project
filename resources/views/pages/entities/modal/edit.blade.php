@@ -18,9 +18,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="message-text" class="col-form-label">Theme</label>
-                        <select class="form-control select2" name="" id="theme">
-                            <option>Choose</option>
-                            <option value="dfd">fg</option>
+{{--                        <select class="form-control select2" name="" id="theme">--}}
+{{--                            <option>Choose</option>--}}
+{{--                            <option value="dfd">fg</option>--}}
+{{--                        </select>--}}
+                        <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
+                            <option selected="">Theme 1</option>
+                            <option value="1">Theme 2</option>
+                            <option value="2">Theme 3</option>
+                            <option value="3">Theme 4</option>
                         </select>
                     </div>
                     <div class="mb-3">
@@ -33,9 +39,9 @@
                     </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-outline-secondary">Cancel</button>
+            <div class="modal-footer flex-nowrap">
+                <button type="submit" class="btn btn-primary w-50">Save</button>
+                <button type="button" class="btn btn-outline-secondary w-50" data-bs-dismiss="modal">Cancel</button>
             </div>
         </div>
     </div>

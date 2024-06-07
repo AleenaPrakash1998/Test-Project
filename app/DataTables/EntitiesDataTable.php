@@ -19,7 +19,7 @@ class EntitiesDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->addColumn('action', 'pages.entities._columns.action')
             ->addColumn('menu', 'pages.entities._columns.menu')
-            ->rawColumns(['action','menu'])
+            ->rawColumns(['action', 'menu'])
             ->setRowId('id');
     }
 
@@ -42,10 +42,10 @@ class EntitiesDataTable extends DataTable
     {
         return [
             Column::make('name'),
-            Column::make('theme_id')->title('theme'),
-            Column::make('menu'),
-            Column::make('api_key'),
-            Column::make('reference_key'),
+            Column::make('theme_id')->title('theme')->orderable(false),
+            Column::make('menu')->orderable(false),
+            Column::make('api_key')->orderable(false),
+            Column::make('reference_key')->orderable(false),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
