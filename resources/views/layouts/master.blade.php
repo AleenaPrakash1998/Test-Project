@@ -22,6 +22,9 @@
     <link href="https://www.jquery-az.com/boots/css/bootstrap-colorpicker/main.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="{{ asset('assets/plugins/datatables-net-bs5/dataTables.bootstrap5.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/plugins/dataTables/datatables.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/plugins/jquery-datatables-checkboxes-1.2.12/css/dataTables.checkboxes.css') }}" rel="stylesheet" />
 
 </head>
 <body>
@@ -49,8 +52,13 @@
 <script src="{{asset('assets/vendor/js/menu.js')}}"></script>
 <script src="{{asset('assets/js/main.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="{{ asset('assets/plugins/datatables-net/jquery.dataTables.js') }}"></script>
+<script src="{{ asset('assets/plugins/dataTables/datatables.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/datatables-net-bs5/dataTables.bootstrap5.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery-datatables-checkboxes-1.2.12/js/dataTables.checkboxes.min.js') }}"></script>
+<script src="{{ asset('assets/js/dataTable.js') }}"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
 
-<!-- jQuery Validate CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
 <script>
     (function (document, window, $) {

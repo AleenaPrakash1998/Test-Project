@@ -7933,7 +7933,7 @@ label.btn {
 }
 
 .btn-secondary:hover {
-    color: #fff !important;
+    color: #000000 !important;
     background-color: #C39F74 !important;
     border-color: #C39F74 !important;
     transform: translateY(-1px) !important;
@@ -7949,7 +7949,7 @@ label.btn {
 
 .btn-check:checked + .btn-secondary, .btn-check:active + .btn-secondary, .btn-secondary:active, .btn-secondary.active, .btn-secondary.show.dropdown-toggle, .show > .btn-secondary.dropdown-toggle {
     color: #fff !important;
-    background-color: #717c8b !important;
+    background-color: #F9F9F9 !important;
     border-color: #717c8b !important;
 }
 
@@ -7965,31 +7965,30 @@ label.btn {
 }
 
 .btn-outline-secondary {
-    color: #C39F74;
-    border-color: #C39F74;
-    background: transparent;
+    color: #7D7B7B;
+    border-color: #7D7B7B;
+    background: #F9F9F9!important;
 }
 
 .btn-outline-secondary:hover {
-    color: #fff !important;
-    background-color: #C39F74 !important;
-    border-color: #788393 !important;
-    box-shadow: 0 0.125rem 0.25rem 0 rgba(133, 146, 163, 0.4) !important;
+    color: #7D7B7B  !important;
+    background-color: #F9F9F9 !important;
+    border-color: #7D7B7B !important;
     transform: translateY(-1px) !important;
 }
 
 .btn-check:focus + .btn-outline-secondary, .btn-outline-secondary:focus {
     color: #fff;
-    background-color: #788393;
-    border-color: #788393;
+    background-color: #7D7B7B;
+    border-color: #7D7B7B;
     box-shadow: none;
     transform: translateY(0);
 }
 
 .btn-check:checked + .btn-outline-secondary, .btn-check:active + .btn-outline-secondary, .btn-outline-secondary:active, .btn-outline-secondary.active, .btn-outline-secondary.dropdown-toggle.show {
     color: #fff !important;
-    background-color: #717c8b !important;
-    border-color: #717c8b !important;
+    background-color: #7D7B7B !important;
+    border-color: #7D7B7B !important;
 }
 
 .btn-check:checked + .btn-outline-secondary:focus, .btn-check:active + .btn-outline-secondary:focus, .btn-outline-secondary:active:focus, .btn-outline-secondary.active:focus, .btn-outline-secondary.dropdown-toggle.show:focus {
@@ -7998,13 +7997,13 @@ label.btn {
 
 .btn-outline-secondary.disabled, .btn-outline-secondary:disabled {
     box-shadow: none !important;
-    color: #8592a3 !important;
+    color: #7D7B7B !important;
     background-color: transparent !important;
 }
 
 .btn-outline-secondary .badge {
-    background: #8592a3;
-    border-color: #8592a3;
+    background: #7D7B7B;
+    border-color: #7D7B7B;
     color: #fff;
 }
 

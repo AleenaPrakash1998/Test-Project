@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\EntitiesDataTable;
 use Illuminate\Http\Request;
 
 class EntityController extends Controller
 {
 
-    public function index()
+    public function index(EntitiesDataTable $dataTable)
     {
-        return view('pages.entities.index');
+//        return view('pages.entities.index');
+        return $dataTable->render('pages.entities.index');
     }
 
 

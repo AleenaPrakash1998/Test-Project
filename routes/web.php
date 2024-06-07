@@ -21,21 +21,17 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/entities', function () {
     return view('pages.entities.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('entities.index');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-require __DIR__ . '/auth.php';
-
-Route::middleware('auth')->group(function () {
     Route::resource('urls', UrlController::class);
     Route::resource('entities', EntityController::class);
     Route::resource('themes', ThemeController::class);
 });
 
+require __DIR__ . '/auth.php';
