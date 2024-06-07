@@ -28,7 +28,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="defaultFormControlInput" class="form-label">Menu</label>
-                        <input class="form-control" type="file" id="formFile">
+                        <div class="form-group">
+                            <select class="js-example-basic-multiple" multiple  data-allow-clear="1" id="select2" name="select2">
+                                <option>HTML</option>
+                                <option>CSS</option>
+                                <option>JavaScript</option>
+                                <option>PHP</option>
+                                <option>MySQL</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -184,6 +192,14 @@
             $('#primary-color-picker').colorpicker();
             $('#secondary-color-picker').colorpicker();
         });
+        $(document).ready(function() {
+            $('.js-example-basic-multiple').select2({width:'100%'});
+        });
     </script>
-
 @endpush
+
+<style>
+    .select2-container--default .select2-selection--multiple {
+        border-color: #d9dee3!important;
+    }
+</style>
