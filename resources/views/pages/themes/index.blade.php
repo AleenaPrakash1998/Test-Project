@@ -67,8 +67,7 @@
                                             class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
                                             onclick="window.location.href='{{ route('themes.edit', 1) }}'">
                                         View&nbsp;
-                                        <img src="{{ asset('assets/img/icons/unicons/Vector.svg') }}" alt="Icon"
-                                             style="height: 20px; width: 20px; margin-right: 5px;">
+                                        <i class='bx bx-show-alt'></i>
                                     </button>
                                 </span>
                             </div>
@@ -94,8 +93,7 @@
                                             class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
                                             onclick="window.location.href='{{ route('themes.edit', 1) }}'">
                                         View&nbsp;
-                                        <img src="{{ asset('assets/img/icons/unicons/Vector.svg') }}" alt="Icon"
-                                             style="height: 20px; width: 20px; margin-right: 5px;">
+                                        <i class='bx bx-show-alt'></i>
                                     </button>
                                 </span>
                             </div>
@@ -121,8 +119,7 @@
                                             class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
                                             onclick="window.location.href='{{ route('themes.edit', 1) }}'">
                                         View&nbsp;
-                                        <img src="{{ asset('assets/img/icons/unicons/Vector.svg') }}" alt="Icon"
-                                             style="height: 20px; width: 20px; margin-right: 5px;">
+                                        <i class='bx bx-show-alt'></i>
                                     </button>
                                 </span>
                             </div>
@@ -148,8 +145,33 @@
                                             class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
                                             onclick="window.location.href='{{ route('themes.edit', 1) }}'">
                                         View&nbsp;
-                                        <img src="{{ asset('assets/img/icons/unicons/Vector.svg') }}" alt="Icon"
-                                             style="height: 20px; width: 20px; margin-right: 5px;">
+                                        <i class='bx bx-show-alt'></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td class="  control" tabindex="0" style="display: none;"></td>
+                        <td>
+                            <div class="d-flex flex-column"><span class="emp_name text-truncate text-secondary">Glyn Giacoppo</span>
+                            </div>
+                        </td>
+                        <td><span class="badge  bg-label-warning">Resigned</span></td>
+                        <td>
+                            <div class="d-flex justify-content-center align-items-center border px-3 py-2">
+                                <img src="{{ asset('assets/img/logo/logo.png') }}" class="img-fluid"
+                                     style="max-width: 72px; height: 20px;">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex flex-column justify-content-center">
+                                <span class="emp_name text-truncate text-secondary">
+                                   <button type="button"
+                                           class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
+                                           onclick="window.location.href='{{ route('themes.edit', 1) }}'">
+                                        View&nbsp;
+                                        <i class='bx bx-show-alt'></i>
                                     </button>
                                 </span>
                             </div>
@@ -175,8 +197,7 @@
                                             class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
                                             onclick="window.location.href='{{ route('themes.edit', 1) }}'">
                                         View&nbsp;
-                                        <img src="{{ asset('assets/img/icons/unicons/Vector.svg') }}" alt="Icon"
-                                             style="height: 20px; width: 20px; margin-right: 5px;">
+                                        <i class='bx bx-show-alt'></i>
                                     </button>
                                 </span>
                             </div>
@@ -202,35 +223,7 @@
                                             class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
                                             onclick="window.location.href='{{ route('themes.edit', 1) }}'">
                                         View&nbsp;
-                                        <img src="{{ asset('assets/img/icons/unicons/Vector.svg') }}" alt="Icon"
-                                             style="height: 20px; width: 20px; margin-right: 5px;">
-                                    </button>
-                                </span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="odd">
-                        <td class="  control" tabindex="0" style="display: none;"></td>
-                        <td>
-                            <div class="d-flex flex-column"><span class="emp_name text-truncate text-secondary">Glyn Giacoppo</span>
-                            </div>
-                        </td>
-                        <td><span class="badge  bg-label-warning">Resigned</span></td>
-                        <td>
-                            <div class="d-flex justify-content-center align-items-center border px-3 py-2">
-                                <img src="{{ asset('assets/img/logo/logo.png') }}" class="img-fluid"
-                                     style="max-width: 72px; height: 20px;">
-                            </div>
-                        </td>
-                        <td>
-                            <div class="d-flex flex-column justify-content-center">
-                                <span class="emp_name text-truncate text-secondary">
-                                    <button type="button"
-                                            class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
-                                            onclick="window.location.href='{{ route('themes.edit',1) }}'">
-                                        View&nbsp;
-                                        <img src="{{ asset('assets/img/icons/unicons/Vector.svg') }}" alt="Icon"
-                                             style="height: 20px; width: 20px; margin-right: 5px;">
+                                        <i class='bx bx-show-alt'></i>
                                     </button>
                                 </span>
                             </div>
@@ -254,10 +247,9 @@
                                 <span class="emp_name text-truncate text-secondary">
                                     <button type="button"
                                             class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
-                                            onclick="window.location.href='{{ route('themes.edit',1) }}'">
+                                            onclick="window.location.href='{{ route('themes.edit', 1) }}'">
                                         View&nbsp;
-                                        <img src="{{ asset('assets/img/icons/unicons/Vector.svg') }}" alt="Icon"
-                                             style="height: 20px; width: 20px; margin-right: 5px;">
+                                        <i class='bx bx-show-alt'></i>
                                     </button>
                                 </span>
                             </div>
@@ -279,12 +271,11 @@
                         <td>
                             <div class="d-flex flex-column justify-content-center">
                                 <span class="emp_name text-truncate text-secondary">
-                                    <button type="button"
-                                            class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
-                                            onclick="window.location.href='{{ route('themes.edit', 1) }}'">
+                                   <button type="button"
+                                           class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
+                                           onclick="window.location.href='{{ route('themes.edit', 1) }}'">
                                         View&nbsp;
-                                        <img src="{{ asset('assets/img/icons/unicons/Vector.svg') }}" alt="Icon"
-                                             style="height: 20px; width: 20px; margin-right: 5px;">
+                                        <i class='bx bx-show-alt'></i>
                                     </button>
                                 </span>
                             </div>
@@ -307,12 +298,11 @@
                         <td>
                             <div class="d-flex flex-column justify-content-center">
                                 <span class="emp_name text-truncate text-secondary">
-                                    <button type="button"
-                                            class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
-                                            onclick="window.location.href='{{ route('themes.edit', 1) }}'">
+                                   <button type="button"
+                                           class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
+                                           onclick="window.location.href='{{ route('themes.edit', 1) }}'">
                                         View&nbsp;
-                                        <img src="{{ asset('assets/img/icons/unicons/Vector.svg') }}" alt="Icon"
-                                             style="height: 20px; width: 20px; margin-right: 5px;">
+                                        <i class='bx bx-show-alt'></i>
                                     </button>
                                 </span>
                             </div>

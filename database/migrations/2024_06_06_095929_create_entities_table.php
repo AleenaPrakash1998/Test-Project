@@ -10,6 +10,10 @@ return new class extends Migration {
     {
         Schema::create('entities', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->foreignId('theme_id')->constrained('themes');
+            $table->string('api_key');
+            $table->string('reference_key');
             $table->timestamps();
         });
     }

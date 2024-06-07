@@ -12,13 +12,15 @@
                         <div class="d-flex gap-2">
                             <div class="position-relative">
                                 <input type="text" class="form-control" id="filter-user-search" autocomplete="off"
-                                        placeholder="Search.." data-dt-toggle="search"
-                                        data-dt-target="#attributes-table">
-                                <span class="position-absolute" style="top: 10px;right: 8px"><i class='bx bx-search' ></i></span>
+                                       placeholder="Search.." data-dt-toggle="search"
+                                       data-dt-target="#attributes-table">
+                                <span class="position-absolute" style="top: 10px;right: 8px"><i
+                                        class='bx bx-search'></i></span>
                             </div>
                             <div class="col-6">
-                                <button type="submit" class="btn btn-primary w-100"><span class="d-flex justify-content-center align-items-center">
-                                        <i class='bx bx-refresh' ></i> Sync
+                                <button type="submit" class="btn btn-primary w-100"><span
+                                        class="d-flex justify-content-center align-items-center">
+                                        <i class='bx bx-refresh'></i> Sync
                                     </span>
                                 </button>
                             </div>
@@ -80,12 +82,87 @@
                         <td>
                             <div class="d-flex flex-column justify-content-center">
                                 <span class="emp_name text-truncate text-secondary">
+                                     <button type="button"
+                                             class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
+                                             onclick="openModal()">
+                                        Edit&nbsp;
+                                        <i class='bx bx-edit-alt'></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="even">
+                        <td class="  control" tabindex="0" style="display: none;"></td>
+                        <td>
+                            <div class="d-flex flex-column"><span
+                                    class="emp_name text-truncate text-secondary">Entity 1</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex flex-column"><span
+                                    class="emp_name text-truncate text-secondary">Theme 2</span>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="badge  bg-label-warning">Home</span>
+                            <span class="badge  bg-label-warning">Services</span>
+                            <span class="badge  bg-label-warning">Contracts</span>
+                        </td>
+                        <td>
+                            <div class="d-flex flex-column"><span class="emp_name text-truncate text-secondary">asdfghnytr1234567</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex flex-column"><span class="emp_name text-truncate text-secondary">asdfghnytr1234567</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex flex-column justify-content-center">
+                                <span class="emp_name text-truncate text-secondary">
                                     <button type="button"
                                             class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
                                             onclick="openModal()">
                                         Edit&nbsp;
-                                        <img src="{{ asset('assets/img/icons/unicons/edit.png') }}" alt="Icon"
-                                             style="height: 20px; width: 20px; margin-right: 5px;">
+                                        <i class='bx bx-edit-alt'></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td class="  control" tabindex="0" style="display: none;"></td>
+                        <td>
+                            <div class="d-flex flex-column"><span
+                                    class="emp_name text-truncate text-secondary">Entity 1</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex flex-column"><span
+                                    class="emp_name text-truncate text-secondary">Theme 2</span>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="badge  bg-label-warning">Home</span>
+                            <span class="badge  bg-label-warning">Services</span>
+                            <span class="badge  bg-label-warning">Contracts</span>
+                        </td>
+                        <td>
+                            <div class="d-flex flex-column"><span class="emp_name text-truncate text-secondary">asdfghnytr1234567</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex flex-column"><span class="emp_name text-truncate text-secondary">asdfghnytr1234567</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex flex-column justify-content-center">
+                                <span class="emp_name text-truncate text-secondary">
+                                     <button type="button"
+                                             class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
+                                             onclick="openModal()">
+                                        Edit&nbsp;
+                                        <i class='bx bx-edit-alt'></i>
                                     </button>
                                 </span>
                             </div>
@@ -119,12 +196,11 @@
                         <td>
                             <div class="d-flex flex-column justify-content-center">
                                 <span class="emp_name text-truncate text-secondary">
-                                    <button type="button"
-                                            class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
-                                            onclick="window.location.href='{{ route('themes.edit', 1) }}'">
+                                     <button type="button"
+                                             class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
+                                             onclick="openModal()">
                                         Edit&nbsp;
-                                        <img src="{{ asset('assets/img/icons/unicons/edit.png') }}" alt="Icon"
-                                             style="height: 20px; width: 20px; margin-right: 5px;">
+                                        <i class='bx bx-edit-alt'></i>
                                     </button>
                                 </span>
                             </div>
@@ -160,10 +236,9 @@
                                 <span class="emp_name text-truncate text-secondary">
                                     <button type="button"
                                             class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
-                                            onclick="window.location.href='{{ route('themes.edit', 1) }}'">
+                                            onclick="openModal()">
                                         Edit&nbsp;
-                                        <img src="{{ asset('assets/img/icons/unicons/edit.png') }}" alt="Icon"
-                                             style="height: 20px; width: 20px; margin-right: 5px;">
+                                        <i class='bx bx-edit-alt'></i>
                                     </button>
                                 </span>
                             </div>
@@ -199,10 +274,9 @@
                                 <span class="emp_name text-truncate text-secondary">
                                     <button type="button"
                                             class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
-                                            onclick="window.location.href='{{ route('themes.edit', 1) }}'">
+                                            onclick="openModal()">
                                         Edit&nbsp;
-                                        <img src="{{ asset('assets/img/icons/unicons/edit.png') }}" alt="Icon"
-                                             style="height: 20px; width: 20px; margin-right: 5px;">
+                                        <i class='bx bx-edit-alt'></i>
                                     </button>
                                 </span>
                             </div>
@@ -236,12 +310,11 @@
                         <td>
                             <div class="d-flex flex-column justify-content-center">
                                 <span class="emp_name text-truncate text-secondary">
-                                    <button type="button"
-                                            class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
-                                            onclick="window.location.href='{{ route('themes.edit', 1) }}'">
+                                     <button type="button"
+                                             class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
+                                             onclick="openModal()">
                                         Edit&nbsp;
-                                        <img src="{{ asset('assets/img/icons/unicons/edit.png') }}" alt="Icon"
-                                             style="height: 20px; width: 20px; margin-right: 5px;">
+                                        <i class='bx bx-edit-alt'></i>
                                     </button>
                                 </span>
                             </div>
@@ -277,88 +350,9 @@
                                 <span class="emp_name text-truncate text-secondary">
                                     <button type="button"
                                             class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
-                                            onclick="window.location.href='{{ route('themes.edit', 1) }}'">
+                                            onclick="openModal()">
                                         Edit&nbsp;
-                                        <img src="{{ asset('assets/img/icons/unicons/edit.png') }}" alt="Icon"
-                                             style="height: 20px; width: 20px; margin-right: 5px;">
-                                    </button>
-                                </span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="odd">
-                        <td class="  control" tabindex="0" style="display: none;"></td>
-                        <td>
-                            <div class="d-flex flex-column"><span
-                                    class="emp_name text-truncate text-secondary">Entity 1</span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="d-flex flex-column"><span
-                                    class="emp_name text-truncate text-secondary">Theme 2</span>
-                            </div>
-                        </td>
-                        <td>
-                            <span class="badge  bg-label-warning">Home</span>
-                            <span class="badge  bg-label-warning">Services</span>
-                            <span class="badge  bg-label-warning">Contracts</span>
-                        </td>
-                        <td>
-                            <div class="d-flex flex-column"><span class="emp_name text-truncate text-secondary">asdfghnytr1234567</span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="d-flex flex-column"><span class="emp_name text-truncate text-secondary">asdfghnytr1234567</span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="d-flex flex-column justify-content-center">
-                                <span class="emp_name text-truncate text-secondary">
-                                    <button type="button"
-                                            class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
-                                            onclick="window.location.href='{{ route('themes.edit', 1) }}'">
-                                        Edit&nbsp;
-                                        <img src="{{ asset('assets/img/icons/unicons/edit.png') }}" alt="Icon"
-                                             style="height: 20px; width: 20px; margin-right: 5px;">
-                                    </button>
-                                </span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="even">
-                        <td class="  control" tabindex="0" style="display: none;"></td>
-                        <td>
-                            <div class="d-flex flex-column"><span
-                                    class="emp_name text-truncate text-secondary">Entity 1</span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="d-flex flex-column"><span
-                                    class="emp_name text-truncate text-secondary">Theme 2</span>
-                            </div>
-                        </td>
-                        <td>
-                            <span class="badge  bg-label-warning">Home</span>
-                            <span class="badge  bg-label-warning">Services</span>
-                            <span class="badge  bg-label-warning">Contracts</span>
-                        </td>
-                        <td>
-                            <div class="d-flex flex-column"><span class="emp_name text-truncate text-secondary">asdfghnytr1234567</span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="d-flex flex-column"><span class="emp_name text-truncate text-secondary">asdfghnytr1234567</span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="d-flex flex-column justify-content-center">
-                                <span class="emp_name text-truncate text-secondary">
-                                    <button type="button"
-                                            class="btn btn-outline-secondary rounded-pill d-flex align-items-center"
-                                            onclick="window.location.href='{{ route('themes.edit', 1) }}'">
-                                        Edit&nbsp;
-                                        <img src="{{ asset('assets/img/icons/unicons/edit.png') }}" alt="Icon"
-                                             style="height: 20px; width: 20px; margin-right: 5px;">
+                                        <i class='bx bx-edit-alt'></i>
                                     </button>
                                 </span>
                             </div>
@@ -451,8 +445,9 @@
             var modal = new bootstrap.Modal(document.getElementById('exampleModal'));
             modal.show();
         }
+
         $('#theme').select2({
-            width:'100%'
+            width: '100%'
         })
     </script>
 @endpush
