@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\ThemesDataTable;
 use App\Http\Requests\ThemeStoreRequest;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -9,9 +10,9 @@ use Illuminate\View\View;
 class ThemeController extends Controller
 {
 
-    public function index(): View
+    public function index(ThemesDataTable $dataTable)
     {
-        return view('pages.themes.index');
+        return $dataTable->render('pages.themes.index');
     }
 
 
