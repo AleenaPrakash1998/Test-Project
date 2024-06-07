@@ -13,7 +13,7 @@
                             </span>
                             {{--                        </a>--}}
                         </div>
-                        <div class="text-center">
+                        <div class="text-center p-3">
                             <h4 class="mb-2 text-secondary">Welcome to Shamal</h4>
                             <p class="text-secondary">Login to continue your account</p>
                         </div>
@@ -21,17 +21,19 @@
                             @csrf
                             <div class="mb-3">
                                 <x-input-label for="email" :value="__('Email')" class="form-label fw-semibold"/>
-                                <x-text-input id="email" class="form-control text-secondary" type="email" name="email"
+                                <x-text-input id="email" class="form-control text-secondary shadow-none" type="email"
+                                              name="email"
                                               :value="old('email')" placeholder="Enter your email"
                                               autocomplete="username"/>
                                 <x-input-error :messages="$errors->get('email')" class="mt-2 text-danger"/>
                             </div>
                             <div class="mb-4 form-password-toggle">
-                                    <x-input-label for="password" :value="__('Password')"
-                                                   class="form-label fw-semibold"/>
-                                    <x-text-input id="password" class="form-control" type="password" name="password"
-                                                  placeholder="Enter your password"
-                                                  autocomplete="current-password"/>
+                                <x-input-label for="password" :value="__('Password')"
+                                               class="form-label fw-semibold"/>
+                                <x-text-input id="password" class="form-control shadow-none" type="password"
+                                              name="password"
+                                              placeholder="Enter your password"
+                                              autocomplete="current-password"/>
                             </div>
                             <div class="mb-5">
                                 <div class="form-check">
@@ -71,5 +73,6 @@
                 },
             })
         })
+        document.getElementById('email').blur();
     </script>
 </x-guest-layout>

@@ -20,7 +20,7 @@ class ThemeController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(ThemeStoreRequest $request)
     {
         //
     }

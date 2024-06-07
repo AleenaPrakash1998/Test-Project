@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $name
@@ -39,7 +41,22 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Theme whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class Theme extends Model
+class Theme extends Model implements HasMedia
 {
     use HasFactory;
+    use InteractsWithMedia;
+
+    protected $table = 'themes';
+    protected $fillable = [
+        'name',
+        'text_heading',
+        'text_title',
+        'text_body',
+        'button_primary',
+        'button_secondary',
+        'dashboard',
+        'menu',
+        'navbar',
+        'is_default',
+    ];
 }
