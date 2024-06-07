@@ -46,8 +46,8 @@ class ThemesDataTable extends DataTable
     {
         return [
             Column::make('name'),
-            Column::make('menu'),
-            Column::make('logo'),
+            Column::make('menu')->orderable(false),
+            Column::make('logo')->orderable(false),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
