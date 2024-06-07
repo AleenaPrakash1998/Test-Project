@@ -16,11 +16,11 @@
                     <div class="mb-3">
                         <label for="defaultFormControlInput" class="form-label">Name</label>
                         <input type="text" class="form-control" id="defaultFormControlInput"
-                               aria-describedby="defaultFormControlHelp">
+                               aria-describedby="defaultFormControlHelp" name="name">
                     </div>
                     <div class="mb-3">
                         <label for="defaultFormControlInput" class="form-label">Theme logo</label>
-                        <input class="form-control" type="file" id="formFile">
+                        <input class="form-control" type="file" id="formFile" name="">
                     </div>
                     <div class="mb-3">
                         <label for="defaultFormControlInput" class="form-label">Banner Image</label>

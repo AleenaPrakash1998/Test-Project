@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ThemeStoreRequest;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 

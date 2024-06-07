@@ -1,9 +1,9 @@
 <x-guest-layout>
     <div class="">
-        <div class="authentication-inner  d-flex justify-content-center align-items-center margin-auto vh-100">
+        <div class="authentication-inner d-flex justify-content-center align-items-center margin-auto vh-100">
             <!-- First Card (Login Form) -->
             <div class="card border-0 shadow-none" style="max-width: 700px;">
-                <div class="card-body mt-4 d-flex">
+                <div class="card-body mt-2 d-flex">
                     <div class="mt-4">
                         <div class="app-brand justify-content-center text-center">
                             {{--                        <a href="index.html" class="app-brand-link gap-2">--}}
@@ -49,7 +49,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="px-2 mx-4">
+                    <div class="px-2 ms-4">
                         <img src="{{ asset('assets/img/banners/banner.png') }}" class="w-100 h-100">
                     </div>
                 </div>
