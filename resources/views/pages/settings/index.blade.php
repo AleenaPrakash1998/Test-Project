@@ -5,7 +5,7 @@
             <div class="card-body">
                 <div class="d-flex gap-4">
                     <div class="col-md-6 col-12">
-                        <h5 class="card-header">Urls</h5>
+                        <h5 class="pt-3 pb-3">Urls</h5>
                         <div class="mb-4">
                             <label for="authentication-url" class="form-label">Authentication URL</label>
                             <input type="text" id="authentication-url" class="form-control">
@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-12">
-                        <h5 class="card-header">Payment Urls</h5>
+                        <h5 class="pt-3 pb-3">Payment Urls</h5>
                         <div class="mb-4">
                             <label for="payment-base-url" class="form-label">Payment base URL</label>
                             <input type="text" id="payment-base-url" class="form-control">
