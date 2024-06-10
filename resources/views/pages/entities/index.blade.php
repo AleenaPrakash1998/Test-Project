@@ -20,7 +20,7 @@
                             <div class="col-6">
                                 <button type="submit" class="btn btn-primary w-100"><span
                                         class="d-flex justify-content-center align-items-center">
-                                        <i class='bx bx-refresh'></i> Sync
+                                        <i class='bx bx-refresh'></i>&nbsp;&nbsp;Sync
                                     </span>
                                 </button>
                             </div>

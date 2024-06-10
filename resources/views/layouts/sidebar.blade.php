@@ -1,6 +1,6 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme position-fixed h-100 top-0 left-0">
     <div class="app-brand demo">
-        <a href="index.html" class="app-brand-link">
+        <a href="{{ route('entities.index') }}" class="app-brand-link">
               <span class="app-brand-logo demo">
 
               </span>
