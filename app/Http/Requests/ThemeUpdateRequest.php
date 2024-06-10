@@ -5,9 +5,8 @@ namespace App\Http\Requests;
 use App\Rules\ColorCode;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ThemeStoreRequest extends FormRequest
+class ThemeUpdateRequest extends FormRequest
 {
-
     public function rules(): array
     {
         return [

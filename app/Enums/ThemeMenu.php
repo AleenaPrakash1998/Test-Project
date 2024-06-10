@@ -3,7 +3,7 @@
 
 namespace App\Enums;
 
-enum OrderItemStatus: string
+enum ThemeMenu: string
 {
     case home = 'home';
     case service = 'service';
