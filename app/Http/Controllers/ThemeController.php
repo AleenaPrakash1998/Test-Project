@@ -6,6 +6,7 @@ use App\DataTables\ThemesDataTable;
 use App\Http\Requests\ThemeStoreRequest;
 use App\Http\Requests\ThemeUpdateRequest;
 use App\Models\Theme;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -24,9 +25,13 @@ class ThemeController extends Controller
     }
 
 
-    public function store(ThemeStoreRequest $request)
+    public function store(ThemeStoreRequest $request): RedirectResponse
     {
-        $theme = Theme::create($request->all());
+        $data = $request->all();
+
+        $data['menu_name'] = json_encode($request->input('menu_name'));
+
+        $theme = Theme::create($data);
 
         if ($request->hasFile('logo')) {
             $theme->addMediaFromRequest('logo')
@@ -43,21 +48,23 @@ class ThemeController extends Controller
         return redirect()->route('themes.index')->with('success', 'Theme created successfully.');
     }
 
-    public function edit(Theme $theme)
+    public function edit(Theme $theme): View
     {
         return view('pages.themes.edit', compact('theme'));
     }
 
 
-    public function update(ThemeUpdateRequest $request, string $id)
+    public function update(ThemeUpdateRequest $request, string $id): RedirectResponse
     {
-        $theme = Theme::query()->where('id', $id)->first();
+        $theme = Theme::findOrFail($id);
 
-        $theme->fill($request->all());
+        $data = $request->all();
+        $data['menu_name'] = json_encode($request->input('menu_name'));
 
+        $theme->fill($data);
         $theme->is_default = $request->has('is_default');
-
         $theme->save();
+
 
         if ($request->hasFile('logo')) {
             $theme->clearMediaCollection('logos');

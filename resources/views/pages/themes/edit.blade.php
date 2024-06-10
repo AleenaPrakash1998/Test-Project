@@ -48,8 +48,17 @@
                                 <select class="js-example-basic-multiple" multiple data-allow-clear="1" id="select2"
                                         name="menu_name[]">
                                     @foreach(\App\Enums\ThemeMenu::cases() as $menu)
-                                        <option
-                                            value="{{ $menu->value }}" {{ in_array($menu->value, old('menu_name', [])) ? 'selected' : '' }}>
+                                            <?php
+                                            $menuValue = $menu->value;
+                                            $selected = '';
+                                            if ($theme->menu_name) {
+                                                $menuNames = json_decode($theme->menu_name, true);
+                                                if (in_array($menuValue, $menuNames)) {
+                                                    $selected = 'selected';
+                                                }
+                                            }
+                                            ?>
+                                        <option value="{{ $menuValue }}" {{ $selected }}>
                                             {{ $menu->label() }}
                                         </option>
                                     @endforeach
@@ -168,7 +177,8 @@
                             <div>
                                 <div id="color-picker-rgb" class="input-group colorpicker-component">
                                     <input id="dashboard-color-picker" type="text" class="form-control"
-                                           name="dashboard" value="{{ old('dashboard',  bin2hex($theme->dashboard)) }}"/>
+                                           name="dashboard"
+                                           value="{{ old('dashboard',  bin2hex($theme->dashboard)) }}"/>
                                     <span class="input-group-addon position-absolute end-0 p-2"><i
                                             class='bx bx-color'></i></span>
                                 </div>

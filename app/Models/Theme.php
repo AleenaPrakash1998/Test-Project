@@ -58,5 +58,16 @@ class Theme extends Model implements HasMedia
         'menu',
         'navbar',
         'is_default',
+        'menu_name',
     ];
+
+    protected $casts = [
+        'is_default' => 'boolean',
+        'menu_name' => 'json',
+    ];
+
+    public function getLogoUrl(): ?string
+    {
+        return $this->getFirstMediaUrl('logos');
+    }
 }
