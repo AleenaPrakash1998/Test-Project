@@ -15,12 +15,12 @@
                 <div class="card-body">
                     <div class="mb-3">
                         <label for="defaultFormControlInput" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="defaultFormControlInput" placeholder="John Doe"
-                               aria-describedby="defaultFormControlHelp">
+                        <input type="text" class="form-control" id="defaultFormControlInput"
+                               aria-describedby="defaultFormControlHelp" name="name">
                     </div>
                     <div class="mb-3">
                         <label for="defaultFormControlInput" class="form-label">Theme logo</label>
-                        <input class="form-control" type="file" id="formFile">
+                        <input class="form-control" type="file" id="formFile" name="">
                     </div>
                     <div class="mb-3">
                         <label for="defaultFormControlInput" class="form-label">Banner Image</label>
@@ -28,8 +28,10 @@
                     </div>
                     <div class="mb-3">
                         <label for="defaultFormControlInput" class="form-label">Menu</label>
+                        {{--                        <input class="form-control" type="file" id="formFile">--}}
                         <div class="form-group">
-                            <select class="js-example-basic-multiple" multiple  data-allow-clear="1" id="select2" name="select2">
+                            <select class="js-example-basic-multiple" multiple data-allow-clear="1" id="select2"
+                                    name="select2">
                                 <option>HTML</option>
                                 <option>CSS</option>
                                 <option>JavaScript</option>
@@ -49,8 +51,8 @@
                         </div>
                         <div>
                             <div id="color-picker-rgb" class="input-group colorpicker-component">
-                                <input id="primary-color-picker" type="text" class="form-control" value="#8f3596"/>
-                                <span class="input-group-addon"><i></i></span>
+                                <input id="primary-color-picker" type="text" class="form-control"/>
+                                <span class="input-group-addon position-absolute end-0 p-2"><i class='bx bx-color'></i></span>
                             </div>
                         </div>
                     </div>
@@ -59,9 +61,9 @@
                             <label for="colorPicker" class="form-label">Secondary</label>
                         </div>
                         <div>
-                            <div id="color-picker-rgb" class="input-group colorpicker-component">
-                                <input id="secondary-color-picker" type="text" class="form-control" value="#8f3596"/>
-                                <span class="input-group-addon"><i></i></span>
+                            <div id="color-picker-rgb" class="input-group colorpicker-component position-relative">
+                                <input id="secondary-color-picker" type="text" class="form-control"/>
+                                <span class="input-group-addon position-absolute end-0 p-2"><i class='bx bx-color'></i></span>
                             </div>
                         </div>
                     </div>
@@ -78,8 +80,9 @@
                             <label for="colorPicker" class="form-label">Headings</label>
                         </div>
                         <div id="color-picker-rgb" class="input-group colorpicker-component">
-                            <input id="heading-color-picker" type="text" class="form-control" value="#8f3596"/>
-                            <span class="input-group-addon"><i></i></span>
+                            <input id="heading-color-picker" type="text" class="form-control"/>
+                            <span class="input-group-addon position-absolute end-0 p-2"><i
+                                    class='bx bx-color'></i></span>
                         </div>
 
                     </div>
@@ -90,8 +93,8 @@
 
                         <div>
                             <div id="color-picker-rgb" class="input-group colorpicker-component">
-                                <input id="title-color-picker" type="text" class="form-control" value="#8f3596"/>
-                                <span class="input-group-addon"><i></i></span>
+                                <input id="title-color-picker" type="text" class="form-control"/>
+                                <span class="input-group-addon position-absolute end-0 p-2"><i class='bx bx-color'></i></span>
                             </div>
                         </div>
                     </div>
@@ -102,8 +105,8 @@
 
                         <div>
                             <div id="color-picker-rgb" class="input-group colorpicker-component">
-                                <input id="body-color-picker" type="text" class="form-control" value="#8f3596"/>
-                                <span class="input-group-addon"><i></i></span>
+                                <input id="body-color-picker" type="text" class="form-control"/>
+                                <span class="input-group-addon position-absolute end-0 p-2"><i class='bx bx-color'></i></span>
                             </div>
                         </div>
                     </div>
@@ -119,8 +122,8 @@
 
                         <div>
                             <div id="color-picker-rgb" class="input-group colorpicker-component">
-                                <input id="dashboard-color-picker" type="text" class="form-control" value="#8f3596"/>
-                                <span class="input-group-addon"><i></i></span>
+                                <input id="dashboard-color-picker" type="text" class="form-control"/>
+                                <span class="input-group-addon position-absolute end-0 p-2"><i class='bx bx-color'></i></span>
                             </div>
                         </div>
                     </div>
@@ -131,8 +134,8 @@
 
                         <div>
                             <div id="color-picker-rgb" class="input-group colorpicker-component">
-                                <input id="menu-color-picker" type="text" class="form-control" value="#8f3596"/>
-                                <span class="input-group-addon"><i></i></span>
+                                <input id="menu-color-picker" type="text" class="form-control"/>
+                                <span class="input-group-addon position-absolute end-0 p-2"><i class='bx bx-color'></i></span>
                             </div>
                         </div>
                     </div>
@@ -143,8 +146,8 @@
 
                         <div>
                             <div id="color-picker-rgb" class="input-group colorpicker-component">
-                                <input id="navbar-color-picker" type="text" class="form-control" value="#8f3596"/>
-                                <span class="input-group-addon"><i></i></span>
+                                <input id="navbar-color-picker" type="text" class="form-control"/>
+                                <span class="input-group-addon position-absolute end-0 p-2"><i class='bx bx-color'></i></span>
                             </div>
                         </div>
                     </div>
@@ -192,14 +195,15 @@
             $('#primary-color-picker').colorpicker();
             $('#secondary-color-picker').colorpicker();
         });
-        $(document).ready(function() {
-            $('.js-example-basic-multiple').select2({width:'100%'});
+        $(document).ready(function () {
+            $('.js-example-basic-multiple').select2({width: '100%'});
         });
     </script>
+
 @endpush
 
 <style>
     .select2-container--default .select2-selection--multiple {
-        border-color: #d9dee3!important;
+        border-color: #d9dee3 !important;
     }
 </style>

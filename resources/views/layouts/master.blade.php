@@ -20,18 +20,19 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" rel="stylesheet">
     <link href="https://www.jquery-az.com/boots/css/bootstrap-colorpicker/bootstrap-colorpicker.css" rel="stylesheet">
     <link href="https://www.jquery-az.com/boots/css/bootstrap-colorpicker/main.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="{{ asset('assets/plugins/datatables-net-bs5/dataTables.bootstrap5.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/plugins/dataTables/datatables.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/plugins/jquery-datatables-checkboxes-1.2.12/css/dataTables.checkboxes.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/plugins/datatables-net-bs5/dataTables.bootstrap5.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('assets/plugins/dataTables/datatables.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('assets/plugins/jquery-datatables-checkboxes-1.2.12/css/dataTables.checkboxes.css') }}"
+          rel="stylesheet"/>
 
 </head>
 <body>
 <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
         @include('layouts.sidebar')
-        <div class="layout-page">
+        <div class="layout-page custom-margin-lg">
             @include('layouts.header')
             <div class="container-xxl flex-grow-1 container-p-y">
                 @yield('content')
@@ -55,10 +56,12 @@
 <script src="{{ asset('assets/plugins/datatables-net/jquery.dataTables.js') }}"></script>
 <script src="{{ asset('assets/plugins/dataTables/datatables.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/datatables-net-bs5/dataTables.bootstrap5.js') }}"></script>
-<script src="{{ asset('assets/plugins/jquery-datatables-checkboxes-1.2.12/js/dataTables.checkboxes.min.js') }}"></script>
+<script
+    src="{{ asset('assets/plugins/jquery-datatables-checkboxes-1.2.12/js/dataTables.checkboxes.min.js') }}"></script>
 <script src="{{ asset('assets/js/dataTable.js') }}"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.4.47/css/materialdesignicons.min.css">
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.4.47/css/materialdesignicons.min.css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
 <script>
@@ -81,15 +84,15 @@
 
     })(document, window, jQuery);
 
-    $(document).ready(function(){
-        $('.select2').select2({width:'100%'})
+    $(document).ready(function () {
+        $('.select2').select2({width: '100%'})
     })
 </script>
 
 <script src="https://www.jquery-az.com/boots/js/bootstrap-colorpicker/bootstrap-colorpicker.js"></script>
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 @stack('custom-scripts')
@@ -98,5 +101,11 @@
 <style>
     .table.dataTable {
         width: 100% !important;
+    }
+
+    @media (min-width: 992px) {
+        .custom-margin-lg {
+            margin-left: 278px;
+        }
     }
 </style>
