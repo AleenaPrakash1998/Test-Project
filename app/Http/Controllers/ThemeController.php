@@ -6,8 +6,7 @@ use App\DataTables\ThemesDataTable;
 use App\Http\Requests\ThemeStoreRequest;
 use App\Http\Requests\ThemeUpdateRequest;
 use App\Models\Theme;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use Illuminate\View\View;
 
 class ThemeController extends Controller
@@ -25,7 +24,7 @@ class ThemeController extends Controller
     }
 
 
-    public function store(ThemeStoreRequest $request)
+    public function store(ThemeStoreRequest $request): JsonResponse
     {
         $data = $request->all();
 
@@ -54,7 +53,7 @@ class ThemeController extends Controller
     }
 
 
-    public function update(ThemeUpdateRequest $request, string $id)
+    public function update(ThemeUpdateRequest $request, string $id): JsonResponse
     {
         $theme = Theme::findOrFail($id);
 

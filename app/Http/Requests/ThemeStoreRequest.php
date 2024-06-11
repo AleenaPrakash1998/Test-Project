@@ -11,7 +11,7 @@ class ThemeStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255', 'unique:themes,name'],
             'logo' => ['required', 'file', 'mimes:png,jpg,jpeg,gif'],
             'banner_image' => ['required', 'file', 'mimes:png,jpg,jpeg,gif'],
             'menu_name' => ['required'],

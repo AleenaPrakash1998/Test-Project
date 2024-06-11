@@ -30,17 +30,17 @@
                             <label for="defaultFormControlInput" class="form-label">Theme logo</label>
                             <input class="form-control" type="file" id="logFile" name="logo"
                                    value="{{ old('logo', $theme->logo) }}">
-                            @error('logo')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
+                            @if ($errors->has('logo'))
+                                <div class="text-danger">{{ $errors->first('logo') }}</div>
+                            @endif
                         </div>
                         <div class="mb-3">
                             <label for="defaultFormControlInput" class="form-label">Banner Image</label>
                             <input class="form-control" type="file" id="bannerFile" name="banner_image"
                                    value="{{ old('banner_image', $theme->banner_image) }}">
-                            @error('banner_image')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
+                            @if ($errors->has('banner_image'))
+                                <div class="text-danger">{{ $errors->first('banner_image') }}</div>
+                            @endif
                         </div>
                         <div class="mb-3">
                             <label for="defaultFormControlInput" class="form-label">Menu</label>
