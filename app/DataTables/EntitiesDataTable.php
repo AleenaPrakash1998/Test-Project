@@ -34,14 +34,16 @@ class EntitiesDataTable extends DataTable
             ->setTableId('entities-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->orderBy(0);
+            ->parameters([
+                'bSort' => false,
+            ]);
     }
 
 
     public function getColumns(): array
     {
         return [
-            Column::make('name'),
+            Column::make('name')->orderable(false),
             Column::make('theme_id')->title('theme')->orderable(false),
             Column::make('menu')->orderable(false),
             Column::make('api_key')->orderable(false),
@@ -49,6 +51,7 @@ class EntitiesDataTable extends DataTable
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
+                ->orderable(false)
                 ->width(60)
                 ->addClass('text-center'),
 

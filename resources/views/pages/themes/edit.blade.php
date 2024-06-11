@@ -26,18 +26,66 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+                        {{--                        <div class="mb-3">--}}
+                        {{--                            <label for="defaultFormControlInput" class="form-label">Theme logo</label>--}}
+                        {{--                            @if ($theme->getLogoUrl())--}}
+                        {{--                                <div class="mb-2">--}}
+                        {{--                                    <img src="{{ $theme->getLogoUrl() }}" alt="Current Theme Logo"--}}
+                        {{--                                         style="max-height: 100px;">--}}
+                        {{--                                </div>--}}
+                        {{--                            @endif--}}
+                        {{--                            <input class="form-control" type="file" id="logFile" name="logo" onchange="readURL(this);"--}}
+                        {{--                                   value="{{ old('logo', $theme->logo) }}">--}}
+                        {{--                            @if ($errors->has('logo'))--}}
+                        {{--                                <div class="text-danger">{{ $errors->first('logo') }}</div>--}}
+                        {{--                            @endif--}}
+                        {{--                        </div>--}}
+                        {{--                        <div class="mb-3">--}}
+                        {{--                            <label for="defaultFormControlInput" class="form-label">Banner Image</label>--}}
+                        {{--                            @if ($theme->getBannerUrl())--}}
+                        {{--                                <div class="mb-2">--}}
+                        {{--                                    <img src="{{ $theme->getBannerUrl() }}" alt="Current Theme Logo"--}}
+                        {{--                                         style="max-height: 100px;">--}}
+                        {{--                                </div>--}}
+                        {{--                            @endif--}}
+                        {{--                            <input class="form-control" type="file" id="bannerFile" name="banner_image"--}}
+                        {{--                                   value="{{ old('banner_image', $theme->banner_image) }}">--}}
+                        {{--                            @if ($errors->has('banner_image'))--}}
+                        {{--                                <div class="text-danger">{{ $errors->first('banner_image') }}</div>--}}
+                        {{--                            @endif--}}
+                        {{--                        </div>--}}
                         <div class="mb-3">
                             <label for="defaultFormControlInput" class="form-label">Theme logo</label>
+                            @if ($theme->getLogoUrl())
+                                <div class="mb-2">
+                                    <img src="{{ $theme->getLogoUrl() }}" alt="Current Theme Logo"
+                                         style="max-height: 100px;" id="current-logo">
+                                </div>
+                            @endif
+                            <div class="mb-2">
+                                <img src="#" alt="New Theme Logo" style="max-height: 100px; display:none;"
+                                     id="new-logo">
+                            </div>
                             <input class="form-control" type="file" id="logFile" name="logo"
-                                   value="{{ old('logo', $theme->logo) }}">
+                                   onchange="readURL(this, 'new-logo', 'current-logo');">
                             @if ($errors->has('logo'))
                                 <div class="text-danger">{{ $errors->first('logo') }}</div>
                             @endif
                         </div>
                         <div class="mb-3">
                             <label for="defaultFormControlInput" class="form-label">Banner Image</label>
+                            @if ($theme->getBannerUrl())
+                                <div class="mb-2">
+                                    <img src="{{ $theme->getBannerUrl() }}" alt="Current Banner Image"
+                                         style="max-height: 100px;" id="current-banner">
+                                </div>
+                            @endif
+                            <div class="mb-2">
+                                <img src="#" alt="New Banner Image" style="max-height: 100px; display:none;"
+                                     id="new-banner">
+                            </div>
                             <input class="form-control" type="file" id="bannerFile" name="banner_image"
-                                   value="{{ old('banner_image', $theme->banner_image) }}">
+                                   onchange="readURL(this, 'new-banner', 'current-banner');">
                             @if ($errors->has('banner_image'))
                                 <div class="text-danger">{{ $errors->first('banner_image') }}</div>
                             @endif
@@ -286,12 +334,6 @@
                 name: {
                     required: true
                 },
-                logo: {
-                    required: true,
-                },
-                banner_image: {
-                    required: true,
-                },
                 'menu_name[]': {
                     required: true
                 },
@@ -423,6 +465,19 @@
                 $('#defaultThemeModal').modal('hide');
             });
         });
+
+        function readURL(input, newImgID, currentImgID) {
+            if (input.files && input.files[0]) {
+                let reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#' + newImgID).attr('src', e.target.result).show();
+                    $('#' + currentImgID).hide();
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
     </script>
 
 @endpush

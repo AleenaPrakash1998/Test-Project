@@ -40,18 +40,21 @@ class ThemesDataTable extends DataTable
             ->setTableId('themes-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->orderBy(1);
+            ->parameters([
+                'bSort' => false,
+            ]);
     }
 
 
     public function getColumns(): array
     {
         return [
-            Column::make('name'),
+            Column::make('name')->orderable(false),
             Column::make('menu_name')->title('menu')->orderable(false),
             Column::make('logo')->orderable(false),
             Column::computed('action')
                 ->exportable(false)
+                ->orderable(false)
                 ->printable(false)
                 ->width(60)
                 ->addClass('text-center'),

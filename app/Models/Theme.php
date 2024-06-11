@@ -70,4 +70,9 @@ class Theme extends Model implements HasMedia
     {
         return $this->getFirstMediaUrl('logos');
     }
+
+    public function getBannerUrl(): ?string
+    {
+        return $this->getFirstMediaUrl('banners');
+    }
 }
