@@ -26,34 +26,6 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                        {{--                        <div class="mb-3">--}}
-                        {{--                            <label for="defaultFormControlInput" class="form-label">Theme logo</label>--}}
-                        {{--                            @if ($theme->getLogoUrl())--}}
-                        {{--                                <div class="mb-2">--}}
-                        {{--                                    <img src="{{ $theme->getLogoUrl() }}" alt="Current Theme Logo"--}}
-                        {{--                                         style="max-height: 100px;">--}}
-                        {{--                                </div>--}}
-                        {{--                            @endif--}}
-                        {{--                            <input class="form-control" type="file" id="logFile" name="logo" onchange="readURL(this);"--}}
-                        {{--                                   value="{{ old('logo', $theme->logo) }}">--}}
-                        {{--                            @if ($errors->has('logo'))--}}
-                        {{--                                <div class="text-danger">{{ $errors->first('logo') }}</div>--}}
-                        {{--                            @endif--}}
-                        {{--                        </div>--}}
-                        {{--                        <div class="mb-3">--}}
-                        {{--                            <label for="defaultFormControlInput" class="form-label">Banner Image</label>--}}
-                        {{--                            @if ($theme->getBannerUrl())--}}
-                        {{--                                <div class="mb-2">--}}
-                        {{--                                    <img src="{{ $theme->getBannerUrl() }}" alt="Current Theme Logo"--}}
-                        {{--                                         style="max-height: 100px;">--}}
-                        {{--                                </div>--}}
-                        {{--                            @endif--}}
-                        {{--                            <input class="form-control" type="file" id="bannerFile" name="banner_image"--}}
-                        {{--                                   value="{{ old('banner_image', $theme->banner_image) }}">--}}
-                        {{--                            @if ($errors->has('banner_image'))--}}
-                        {{--                                <div class="text-danger">{{ $errors->first('banner_image') }}</div>--}}
-                        {{--                            @endif--}}
-                        {{--                        </div>--}}
                         <div class="mb-3">
                             <label for="defaultFormControlInput" class="form-label">Theme logo</label>
                             @if ($theme->getLogoUrl())
