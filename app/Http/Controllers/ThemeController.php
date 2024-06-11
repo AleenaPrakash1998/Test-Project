@@ -25,7 +25,7 @@ class ThemeController extends Controller
     }
 
 
-    public function store(ThemeStoreRequest $request): RedirectResponse
+    public function store(ThemeStoreRequest $request)
     {
         $data = $request->all();
 
@@ -45,7 +45,7 @@ class ThemeController extends Controller
 
         $theme->is_default = $request->has('is_default');
 
-        return redirect()->route('themes.index')->with('success', 'Theme created successfully.');
+        return response()->json(['success' => true]);
     }
 
     public function edit(Theme $theme): View

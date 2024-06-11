@@ -8,7 +8,7 @@
             </p>
         </div>
     </div>
-    <form id="theme-store-form" method="post" action="{{ route('themes.store') }}" enctype="multipart/form-data">
+    <form id="theme-store-form" method="POST" action="{{ route('themes.store') }}" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-md-6">
@@ -41,7 +41,8 @@
                         <div class="mb-3">
                             <label for="defaultFormControlInput" class="form-label">Menu</label>
                             <div class="form-group">
-                                <select class="js-example-basic-multiple" multiple data-allow-clear="1" id="select2"
+                                <select class="js-example-basic-multiple form-control" multiple data-allow-clear="1"
+                                        id="select2"
                                         name="menu_name[]">
                                     @foreach(\App\Enums\ThemeMenu::cases() as $menu)
                                         <option
@@ -221,13 +222,14 @@
                     <div class="me-auto">
                         <div class="form-check form-switch mb-2">
                             <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"
-                                   name="is_default" value="1" {{ old('is_default') ? 'checked' : '' }}}}>
+                                   name="is_default" value="1" {{ old('is_default') ? 'checked' : '' }}>
                             <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox
                                 input</label>
                         </div>
                     </div>
                     <div class="col-auto me-3">
-                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <button type="submit" class="btn btn-primary" id="submit-form">Save Changes
+                        </button>
                     </div>
                     <div class="col-auto">
                         <button type="button" class="btn btn-outline-secondary">Cancel</button>
@@ -236,6 +238,8 @@
             </div>
         </div>
     </form>
+
+    @include('pages.themes._columns.modal.success-modal')
 @endsection
 
 @push('custom-scripts')
@@ -250,18 +254,14 @@
             $('#dashboard-color-picker').colorpicker();
             $('#primary-color-picker').colorpicker();
             $('#secondary-color-picker').colorpicker();
-        });
-        $(document).ready(function () {
-            $('.js-example-basic-multiple').select2({width: '100%'});
-        });
-
-        $.validator.addMethod("colorCode", function (value, element) {
-            let regex = /^#([0-9A-F]{3}){1,2}$/i;
-            return this.optional(element) || regex.test(value);
-        }, "Please enter a valid color code (e.g., #RRGGBB).");
 
 
-        $(function () {
+            $.validator.addMethod("colorCode", function (value, element) {
+                let regex = /^#([0-9A-F]{3}){1,2}$/i;
+                return this.optional(element) || regex.test(value);
+            }, "Please enter a valid color code (e.g., #RRGGBB).");
+
+
             $("#theme-store-form").validate({
                 rules: {
                     name: {
@@ -269,11 +269,9 @@
                     },
                     logo: {
                         required: true,
-                        extension: "png|jpg|jpeg|gif"
                     },
                     banner_image: {
                         required: true,
-                        extension: "png|jpg|jpeg|gif"
                     },
                     'menu_name[]': {
                         required: true
@@ -350,9 +348,40 @@
                 }
 
             });
+
+            $('#submit-form').click(function (event) {
+                event.preventDefault();
+                let form = $('#theme-store-form');
+
+                let formData = new FormData(form[0]);
+
+                if (form.valid()) {
+                    $.ajax({
+                        url: "{{route('themes.store')}}",
+                        type: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                        },
+                        processData: false,
+                        contentType: false,
+                        data: formData,
+                        success: function (response) {
+                            $('#successModal').modal('show');
+
+                            $('#successModal .btn-close, #successModal .btn-primary').on('click', function () {
+                                $('#successModal').modal('hide'); // Close the modal
+                                window.location.href = "{{ route('themes.index') }}"; // Redirect to the themes index page
+                            });
+                        },
+                        error: function (xhr, textStatus, errorThrown) {
+                            console.log('Error:', errorThrown);
+                        }
+                    });
+                }
+            });
+
         });
     </script>
-
 @endpush
 
 <style>

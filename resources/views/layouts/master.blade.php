@@ -87,6 +87,10 @@
     $(document).ready(function () {
         $('.select2').select2({width: '100%'})
     })
+    $(document).ready(function () {
+        $('.js-example-basic-multiple').select2({width: '100%'});
+    });
+
 </script>
 
 <script src="https://www.jquery-az.com/boots/js/bootstrap-colorpicker/bootstrap-colorpicker.js"></script>
@@ -107,5 +111,19 @@
         .custom-margin-lg {
             margin-left: 278px;
         }
+    }
+
+    .select2-container--default .select2-selection--multiple .select2-selection__choice {
+        background-color: #FFF0D0 !important;
+        border: none !important;
+    }
+
+    .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+        color: #C39F74 !important;
+        border-right: 1px solid #C39F74 !important;
+    }
+
+    .select2-container--default .select2-selection--multiple .select2-selection__choice__display {
+        color: #C39F74 !important;
     }
 </style>
