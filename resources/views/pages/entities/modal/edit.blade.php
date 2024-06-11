@@ -14,28 +14,23 @@
                 <form>
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Entity</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <input type="text" class="form-control" id="name">
                     </div>
                     <div class="mb-3">
                         <label for="message-text" class="col-form-label">Theme</label>
-                        {{--                        <select class="form-control select2" name="" id="theme">--}}
-                        {{--                            <option>Choose</option>--}}
-                        {{--                            <option value="dfd">fg</option>--}}
-                        {{--                        </select>--}}
                         <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
-                            <option selected="">Theme 1</option>
-                            <option value="1">Theme 2</option>
-                            <option value="2">Theme 3</option>
-                            <option value="3">Theme 4</option>
+                            @foreach($themes as $theme)
+                                <option value="{{ $theme->id }}">{{ $theme->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="message-text" class="col-form-label">API key</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <input type="text" class="form-control" id="api-key">
                     </div>
                     <div class="mb-3">
                         <label for="message-text" class="col-form-label">Reference Key</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <input type="text" class="form-control" id="reference-key">
                     </div>
                 </form>
             </div>

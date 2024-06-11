@@ -36,5 +36,27 @@
 @endsection
 @push('custom-scripts')
     {{ $dataTable->scripts() }}
+    <script>
+        let $table = $('#entities-table');
+
+        $table.on('click', '.edit-modal', function (e) {
+            e.preventDefault();
+            let id = $(this).data("id");
+            let url = "{{ route('entities.show', ['entity' => ':id']) }}".replace(':id', id);
+            $.ajax({
+                url: url,
+                type: 'GET',
+                dataType: 'json',
+            }).done(function (data, textStatus, jqXHR) {
+                $('#successModal').modal('editModal')
+                $('#name').val(data?.name)
+                $('#reference-key').val(data?.reference_key)
+                $('#exampleFormControlSelect1').val(data?.theme_id)
+                $('#api-key').val(data?.api_key)
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR)
+            });
+        });
+    </script>
 @endpush
 
