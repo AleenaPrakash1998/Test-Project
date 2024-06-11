@@ -43,6 +43,10 @@
             </ul>
         </li>
     </ul>
+    <div style="height: 292px;width: 195px;margin-left: 4pc">
+        <img style="height: 100%;width: 100%" class="object-fit-cover"
+             src="{{asset('assets/img/backgrounds/sidebar-image.png')}}"/>
+    </div>
 </aside>
 
 

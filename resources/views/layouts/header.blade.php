@@ -8,19 +8,11 @@
     </div>
 
     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-        <!-- Search -->
-        <div class="navbar-nav align-items-center">
-            <div class="nav-item d-flex align-items-center">
-                <i class="bx bx-search fs-4 lh-0"></i>
-                <input
-                    type="text"
-                    class="form-control border-0 shadow-none ps-1 ps-sm-2"
-                    placeholder="Search..."
-                    aria-label="Search..."/>
-            </div>
-        </div>
-        <!-- /Search -->
 
+        <span class="text-secondary fw-bold opacity-50">Dashboard </span>
+        &nbsp;
+        <span
+            class="fw-bold navbar-brand mb-0 h1 px-1 text-secondary"> > {{ ucfirst(explode('.', Route::currentRouteName())[0]) }}</span>
         <ul class="navbar-nav flex-row align-items-center ms-auto">
             <!-- Place this tag where you want the button to render. -->
             <li class="nav-item lh-1 me-3 fw-semibold" style="color: var(--bs-heading-color)">
