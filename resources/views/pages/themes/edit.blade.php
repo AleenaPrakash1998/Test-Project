@@ -254,6 +254,8 @@
     </form>
 
     @include('pages.themes._columns.modal.update-success-modal')
+    @include('pages.themes._columns.modal.default-theme-modal')
+
 @endsection
 
 @push('custom-scripts')
@@ -399,6 +401,27 @@
                     }
                 });
             }
+        });
+
+        $(function () {
+            $('#flexSwitchCheckDefault').change(function () {
+                if ($(this).is(':checked')) {
+                    $('#defaultThemeModal').modal('show');
+                    $('#is_default').val(1);
+                } else {
+                    $('#is_default').val(0);
+                }
+            });
+
+            $('#confirmDefaultTheme').click(function () {
+                $('#defaultThemeModal').modal('hide');
+            });
+
+            $('#cancelDefaultTheme').click(function () {
+                $('#flexSwitchCheckDefault').prop('checked', false);
+                $('#is_default').val(0);
+                $('#defaultThemeModal').modal('hide');
+            });
         });
     </script>
 

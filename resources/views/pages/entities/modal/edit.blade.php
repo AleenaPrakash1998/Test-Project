@@ -1,5 +1,5 @@
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -18,10 +18,10 @@
                     </div>
                     <div class="mb-3">
                         <label for="message-text" class="col-form-label">Theme</label>
-{{--                        <select class="form-control select2" name="" id="theme">--}}
-{{--                            <option>Choose</option>--}}
-{{--                            <option value="dfd">fg</option>--}}
-{{--                        </select>--}}
+                        {{--                        <select class="form-control select2" name="" id="theme">--}}
+                        {{--                            <option>Choose</option>--}}
+                        {{--                            <option value="dfd">fg</option>--}}
+                        {{--                        </select>--}}
                         <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
                             <option selected="">Theme 1</option>
                             <option value="1">Theme 2</option>

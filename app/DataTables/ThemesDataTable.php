@@ -20,15 +20,17 @@ class ThemesDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->addColumn('action', 'pages.themes._columns.action')
             ->addColumn('logo', 'pages.themes._columns.logo')
-            ->addColumn('menu', 'pages.themes._columns.menu')
-            ->rawColumns(['action', 'menu', 'logo'])
+            ->editColumn('menu_name', function ($model) {
+                return view('pages.themes._columns.menu', compact('model'))->render();
+            })
+            ->rawColumns(['action', 'menu_name', 'logo'])
             ->setRowId('id');
     }
 
 
     public function query(Theme $model): QueryBuilder
     {
-        return $model->newQuery();
+        return $model->newQuery()->orderBy('id', 'DESC');
     }
 
 
@@ -46,7 +48,7 @@ class ThemesDataTable extends DataTable
     {
         return [
             Column::make('name'),
-            Column::make('menu')->orderable(false),
+            Column::make('menu_name')->title('menu')->orderable(false),
             Column::make('logo')->orderable(false),
             Column::computed('action')
                 ->exportable(false)
@@ -55,7 +57,6 @@ class ThemesDataTable extends DataTable
                 ->addClass('text-center'),
         ];
     }
-
 
     protected function filename(): string
     {

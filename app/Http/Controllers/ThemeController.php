@@ -30,6 +30,12 @@ class ThemeController extends Controller
 
         $data['menu_name'] = json_encode($request->input('menu_name'));
 
+        $isDefault = $request->has('is_default') && $request->input('is_default');
+
+        if ($isDefault) {
+            Theme::query()->update(['is_default' => false]);
+        }
+
         $theme = Theme::create($data);
 
         if ($request->hasFile('logo')) {
@@ -42,7 +48,9 @@ class ThemeController extends Controller
                 ->toMediaCollection('banners');
         }
 
-        $theme->is_default = $request->has('is_default');
+        if ($isDefault) {
+            $theme->update(['is_default' => true]);
+        }
 
         return response()->json(['success' => true]);
     }
@@ -60,8 +68,15 @@ class ThemeController extends Controller
         $data = $request->all();
         $data['menu_name'] = json_encode($request->input('menu_name'));
 
+        $isDefault = $request->has('is_default') && $request->input('is_default');
+
+        if ($isDefault) {
+            Theme::query()->where('id', '<>', $theme->id)->update(['is_default' => false]);
+        }
+
+
         $theme->fill($data);
-        $theme->is_default = $request->has('is_default');
+        $theme->is_default = $isDefault;
         $theme->save();
 
 
