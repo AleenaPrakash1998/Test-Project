@@ -369,12 +369,18 @@
                             $('#successModal').modal('show');
 
                             $('#successModal .btn-close, #successModal .btn-primary').on('click', function () {
-                                $('#successModal').modal('hide'); // Close the modal
-                                window.location.href = "{{ route('themes.index') }}"; // Redirect to the themes index page
+                                $('#successModal').modal('hide');
+                                window.location.href = "{{ route('themes.index') }}";
                             });
                         },
                         error: function (xhr, textStatus, errorThrown) {
-                            console.log('Error:', errorThrown);
+                            if (xhr.responseJSON && xhr.responseJSON.errors) {
+                                $.each(xhr.responseJSON.errors, function (field, errors) {
+                                    $('input[name="' + field + '"]').closest('.mb-3').append('<div class="text-danger">' + errors.join('<br>') + '</div>');
+                                });
+                            } else {
+                                console.log('Error:', errorThrown);
+                            }
                         }
                     });
                 }

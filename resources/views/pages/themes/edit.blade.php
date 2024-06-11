@@ -30,17 +30,17 @@
                             <label for="defaultFormControlInput" class="form-label">Theme logo</label>
                             <input class="form-control" type="file" id="logFile" name="logo"
                                    value="{{ old('logo', $theme->logo) }}">
-                            @if ($errors->has('logo'))
-                                <div class="text-danger">{{ $errors->first('logo') }}</div>
-                            @endif
+                            @error('logo')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label for="defaultFormControlInput" class="form-label">Banner Image</label>
                             <input class="form-control" type="file" id="bannerFile" name="banner_image"
                                    value="{{ old('banner_image', $theme->banner_image) }}">
-                            @if ($errors->has('banner_image'))
-                                <div class="text-danger">{{ $errors->first('banner_image') }}</div>
-                            @endif
+                            @error('banner_image')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label for="defaultFormControlInput" class="form-label">Menu</label>
@@ -243,7 +243,7 @@
                         </div>
                     </div>
                     <div class="col-auto me-3">
-                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <button type="submit" class="btn btn-primary" id="submit-form">Save Changes</button>
                     </div>
                     <div class="col-auto">
                         <button type="button" class="btn btn-outline-secondary">Cancel</button>
@@ -252,6 +252,8 @@
             </div>
         </div>
     </form>
+
+    @include('pages.themes._columns.modal.update-success-modal')
 @endsection
 
 @push('custom-scripts')
@@ -277,96 +279,127 @@
         }, "Please enter a valid color code (e.g., #RRGGBB).");
 
 
-        $(function () {
-            $("#theme-update-form").validate({
-                rules: {
-                    name: {
-                        required: true
-                    },
-                    logo: {
-                        required: true,
-                        extension: "png|jpg|jpeg|gif"
-                    },
-                    banner_image: {
-                        required: true,
-                        extension: "png|jpg|jpeg|gif"
-                    },
-                    'menu_name[]': {
-                        required: true
-                    },
-                    text_heading: {
-                        required: true,
-                        colorCode: true,
-                    },
-                    text_title: {
-                        required: true,
-                        colorCode: true,
-                    },
-                    text_body: {
-                        required: true,
-                        colorCode: true,
-                    },
-                    button_primary: {
-                        required: true,
-                        colorCode: true,
-                    },
-                    button_secondary: {
-                        required: true,
-                        colorCode: true,
-                    },
-                    dashboard: {
-                        required: true,
-                        colorCode: true,
-                    },
-                    menu: {
-                        required: true,
-                        colorCode: true,
-                    },
-                    navbar: {
-                        required: true,
-                        colorCode: true,
-                    },
+        $("#theme-update-form").validate({
+            rules: {
+                name: {
+                    required: true
                 },
-                messages: {
-                    logo: {
-                        required: "Please select a logo image.",
-                        extension: "Please select a valid image file (png, jpg, jpeg, gif)."
-                    },
-                    banner_image: {
-                        required: "Please select a banner image.",
-                        extension: "Please select a valid image file (png, jpg, jpeg, gif)."
-                    },
-                    'menu_name[]': {
-                        required: "Please select at least one menu item."
-                    },
+                logo: {
+                    required: true,
                 },
-                errorPlacement: function (error, element) {
-                    if (error.text() === "" && element.hasClass('select2-hidden-accessible')) {
-                        element.next('.select2-container').removeClass('is-invalid');
-                        element.next('.select2-container').addClass('is-valid');
+                banner_image: {
+                    required: true,
+                },
+                'menu_name[]': {
+                    required: true
+                },
+                text_heading: {
+                    required: true,
+                    colorCode: true,
+                },
+                text_title: {
+                    required: true,
+                    colorCode: true,
+                },
+                text_body: {
+                    required: true,
+                    colorCode: true,
+                },
+                button_primary: {
+                    required: true,
+                    colorCode: true,
+                },
+                button_secondary: {
+                    required: true,
+                    colorCode: true,
+                },
+                dashboard: {
+                    required: true,
+                    colorCode: true,
+                },
+                menu: {
+                    required: true,
+                    colorCode: true,
+                },
+                navbar: {
+                    required: true,
+                    colorCode: true,
+                },
+            },
+            messages: {
+                logo: {
+                    required: "Please select a logo image.",
+                    extension: "Please select a valid image file (png, jpg, jpeg, gif)."
+                },
+                banner_image: {
+                    required: "Please select a banner image.",
+                    extension: "Please select a valid image file (png, jpg, jpeg, gif)."
+                },
+                'menu_name[]': {
+                    required: "Please select at least one menu item."
+                },
+            },
+            errorPlacement: function (error, element) {
+                if (error.text() === "" && element.hasClass('select2-hidden-accessible')) {
+                    element.next('.select2-container').removeClass('is-invalid');
+                    element.next('.select2-container').addClass('is-valid');
+                } else {
+                    if (element.hasClass('js-example-basic-multiple')) {
+                        error.insertAfter(element.next('.select2-container'));
+                    } else if (element.attr("name") === "banner_image" ||
+                        element.attr("name") === "text_heading" ||
+                        element.attr("name") === "text_title" ||
+                        element.attr("name") === "text_body" ||
+                        element.attr("name") === "button_primary" ||
+                        element.attr("name") === "button_secondary" ||
+                        element.attr("name") === "navbar" ||
+                        element.attr("name") === "menu" ||
+                        element.attr("name") === "dashboard") {
+                        // For other fields
+                        error.appendTo(element.closest(".mb-3"));
                     } else {
-                        if (element.hasClass('js-example-basic-multiple')) {
-                            error.insertAfter(element.next('.select2-container'));
-                        } else if (element.attr("name") === "banner_image" ||
-                            element.attr("name") === "text_heading" ||
-                            element.attr("name") === "text_title" ||
-                            element.attr("name") === "text_body" ||
-                            element.attr("name") === "button_primary" ||
-                            element.attr("name") === "button_secondary" ||
-                            element.attr("name") === "navbar" ||
-                            element.attr("name") === "menu" ||
-                            element.attr("name") === "dashboard") {
-                            // For other fields
-                            error.appendTo(element.closest(".mb-3"));
-                        } else {
-                            error.insertAfter(element);
-                        }
+                        error.insertAfter(element);
                     }
                 }
-
-            });
+            }
         });
 
+        $('#submit-form').click(function (event) {
+            event.preventDefault();
+            let form = $('#theme-update-form');
+
+            let formData = new FormData(form[0]);
+
+            if (form.valid()) {
+                $.ajax({
+                    url: "{{route('themes.update', $theme->id)}}",
+                    type: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    },
+                    processData: false,
+                    contentType: false,
+                    data: formData,
+                    success: function (response) {
+                        $('#successModal').modal('show');
+
+                        $('#successModal .btn-close, #successModal .btn-primary').on('click', function () {
+                            $('#successModal').modal('hide');
+                            window.location.href = "{{ route('themes.index') }}";
+                        });
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        if (xhr.responseJSON && xhr.responseJSON.errors) {
+                            $.each(xhr.responseJSON.errors, function (field, errors) {
+                                $('input[name="' + field + '"]').closest('.mb-3').append('<div class="text-danger">' + errors.join('<br>') + '</div>');
+                            });
+                        } else {
+                            console.log('Error:', errorThrown);
+                        }
+                    }
+                });
+            }
+        });
     </script>
 
 @endpush

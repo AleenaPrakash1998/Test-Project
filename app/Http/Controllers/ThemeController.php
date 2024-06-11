@@ -54,7 +54,7 @@ class ThemeController extends Controller
     }
 
 
-    public function update(ThemeUpdateRequest $request, string $id): RedirectResponse
+    public function update(ThemeUpdateRequest $request, string $id)
     {
         $theme = Theme::findOrFail($id);
 
@@ -76,7 +76,7 @@ class ThemeController extends Controller
             $theme->addMediaFromRequest('banner_image')->toMediaCollection('banners');
         }
 
-        return redirect()->route('themes.index')->with('success', 'Theme updated successfully.');
+        return response()->json(['success' => true]);
     }
 
 }
