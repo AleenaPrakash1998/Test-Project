@@ -12,8 +12,8 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->foreignId('theme_id')->constrained('themes');
-            $table->string('api_key');
-            $table->string('reference_key');
+            $table->string('api_key')->nullable();
+            $table->string('reference_key')->nullable();
             $table->timestamps();
         });
     }

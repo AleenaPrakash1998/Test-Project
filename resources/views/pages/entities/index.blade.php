@@ -30,33 +30,63 @@
                 {{ $dataTable->table() }}
             </div>
         </div>
-
     </div>
+
     @include('pages.entities.modal.edit')
+    @include('pages.entities.modal.success-modal')
 @endsection
+
 @push('custom-scripts')
     {{ $dataTable->scripts() }}
     <script>
         let $table = $('#entities-table');
 
-        $table.on('click', '.edit-modal', function (e) {
-            e.preventDefault();
-            let id = $(this).data("id");
+        function populateEditModal(id) {
             let url = "{{ route('entities.show', ['entity' => ':id']) }}".replace(':id', id);
             $.ajax({
                 url: url,
                 type: 'GET',
                 dataType: 'json',
-            }).done(function (data, textStatus, jqXHR) {
-                $('#successModal').modal('editModal')
-                $('#name').val(data?.name)
-                $('#reference-key').val(data?.reference_key)
-                $('#exampleFormControlSelect1').val(data?.theme_id)
-                $('#api-key').val(data?.api_key)
+            }).done(function (data) {
+                $('#editModal').modal('show');
+                $('#name').val(data?.name);
+                // $('#reference-key').val(data?.reference_key);
+                $('#exampleFormControlSelect1').val(data?.theme_id);
+                // $('#api-key').val(data?.api_key);
+                $('#entity-update-form').data('entity-id', id);
             }).fail(function (jqXHR, textStatus, errorThrown) {
-                console.log(jqXHR)
+                console.log(jqXHR);
+            });
+        }
+
+        $table.on('click', '.edit-modal', function (e) {
+            e.preventDefault();
+            let id = $(this).data("id");
+            populateEditModal(id);
+        });
+
+        $('#entity-update-form').submit(function (event) {
+            event.preventDefault();
+            let form = $(this);
+            let id = form.data('entity-id');
+            let url = "{{ route('entities.update', ['entity' => ':id']) }}".replace(':id', id);
+            let formData = new FormData(form[0]);
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    $('#editModal').modal('hide');
+                    $('#successModal').modal('show');
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log(xhr);
+                }
             });
         });
+
     </script>
 @endpush
 
