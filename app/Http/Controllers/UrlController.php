@@ -2,45 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UrlUpdateRequest;
 use App\Models\Url;
-use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use Illuminate\View\View;
 
 class UrlController extends Controller
 {
-    public function index()
+    public function index(): view
     {
         $url = Url::query()->first();
 
         return view('pages.settings.index', compact('url'));
     }
 
-    public function create()
+    public function update(UrlUpdateRequest $request, string $id): JsonResponse
     {
-        //
-    }
+        $url = Url::query()->findOrFail($id);
 
-    public function store(Request $request)
-    {
-        //
-    }
+        $url->fill($request->all());
 
-    public function show(string $id)
-    {
-        //
-    }
+        $url->save();
 
-    public function edit(string $id)
-    {
-        //
-    }
-
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    public function destroy(string $id)
-    {
-        //
+        return response()->json(['success' => true]);
     }
 }
