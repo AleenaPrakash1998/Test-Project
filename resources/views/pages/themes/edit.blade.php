@@ -28,39 +28,51 @@
                         </div>
                         <div class="mb-3">
                             <label for="defaultFormControlInput" class="form-label">Theme logo</label>
-                            @if ($theme->getLogoUrl())
+                            <div class="d-flex gap-3 align-items-center">
+                                @if ($theme->getLogoUrl())
+                                    <div class="mb-2">
+                                        <img src="{{ $theme->getLogoUrl() }}" alt="Current Theme Logo"
+                                             style="max-height: 90px;" id="current-logo">
+                                    </div>
+                                @endif
                                 <div class="mb-2">
-                                    <img src="{{ $theme->getLogoUrl() }}" alt="Current Theme Logo"
-                                         style="max-height: 100px;" id="current-logo">
+                                    <img src="#" alt="New Theme Logo" style="max-height: 90px; display:none;"
+                                         id="new-logo">
                                 </div>
-                            @endif
-                            <div class="mb-2">
-                                <img src="#" alt="New Theme Logo" style="max-height: 100px; display:none;"
-                                     id="new-logo">
+                                <div>
+                                    <label for="logFile" class="btn btn-primary mb-2">Upload new logo</label>
+                                    <p class="fw-medium">Allowed JPG, GIF or PNG. Max size of 800K</p>
+                                </div>
+                                <input class="form-control" type="file" id="logFile" name="logo"
+                                       onchange="readURL(this, 'new-logo', 'current-logo');" style="display: none">
+                                @if ($errors->has('logo'))
+                                    <div class="text-danger">{{ $errors->first('logo') }}</div>
+                                @endif
                             </div>
-                            <input class="form-control" type="file" id="logFile" name="logo"
-                                   onchange="readURL(this, 'new-logo', 'current-logo');">
-                            @if ($errors->has('logo'))
-                                <div class="text-danger">{{ $errors->first('logo') }}</div>
-                            @endif
                         </div>
                         <div class="mb-3">
                             <label for="defaultFormControlInput" class="form-label">Banner Image</label>
-                            @if ($theme->getBannerUrl())
+                            <div class="d-flex gap-3 align-items-center">
+                                @if ($theme->getBannerUrl())
+                                    <div class="mb-2">
+                                        <img src="{{ $theme->getBannerUrl() }}" alt="Current Banner Image"
+                                             style="max-height: 90px;" id="current-banner">
+                                    </div>
+                                @endif
                                 <div class="mb-2">
-                                    <img src="{{ $theme->getBannerUrl() }}" alt="Current Banner Image"
-                                         style="max-height: 100px;" id="current-banner">
+                                    <img src="#" alt="New Banner Image" style="max-height: 90px; display:none;"
+                                         id="new-banner">
                                 </div>
-                            @endif
-                            <div class="mb-2">
-                                <img src="#" alt="New Banner Image" style="max-height: 100px; display:none;"
-                                     id="new-banner">
+                                    <div>
+                                        <label for="bannerFile" class="btn btn-primary mb-2">Upload new logo</label>
+                                        <p class="fw-medium">Allowed JPG, GIF or PNG. Max size of 800K</p>
+                                    </div>
+                                <input class="form-control" type="file" id="bannerFile" name="banner_image"
+                                       onchange="readURL(this, 'new-banner', 'current-banner');" style="display: none">
+                                @if ($errors->has('banner_image'))
+                                    <div class="text-danger">{{ $errors->first('banner_image') }}</div>
+                                @endif
                             </div>
-                            <input class="form-control" type="file" id="bannerFile" name="banner_image"
-                                   onchange="readURL(this, 'new-banner', 'current-banner');">
-                            @if ($errors->has('banner_image'))
-                                <div class="text-danger">{{ $errors->first('banner_image') }}</div>
-                            @endif
                         </div>
                         <div class="mb-3">
                             <label for="defaultFormControlInput" class="form-label">Menu</label>
@@ -131,11 +143,11 @@
                 </div>
             </div>
 
-            <div class="col-md-6">
-                <div class="card mb-4">
-                    <h5 class="card-header fw-semibold">Button Colors</h5>
+            <div class="col-md-6 d-flex flex-column justify-content-center">
+                <div class="card mb-5">
+                    <h5 class="card-header fw-semibold mt-4">Text Colors</h5>
                     <div class="card-body">
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <div>
                                 <label for="colorPicker" class="form-label">Headings</label>
                             </div>
@@ -150,7 +162,7 @@
                             @enderror
 
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <div>
                                 <label for="colorPicker" class="form-label">Title</label>
                             </div>
@@ -167,7 +179,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <div>
                                 <label for="colorPicker" class="form-label">Body</label>
                             </div>
@@ -186,10 +198,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="card mb-4">
-                    <h5 class="card-header fw-semibold">Background Colors</h5>
+                <div class="card mb-5">
+                    <h5 class="card-header fw-semibold mt-4">Background Colors</h5>
                     <div class="card-body">
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <div>
                                 <label for="colorPicker" class="form-label">Dashboard</label>
                             </div>
@@ -207,7 +219,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <div>
                                 <label for="colorPicker" class="form-label">Menu</label>
                             </div>
