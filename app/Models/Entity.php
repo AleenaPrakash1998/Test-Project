@@ -5,12 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use mysql_xdevapi\Table;
-
 
 /**
- *
- *
  * @property int $id
  * @property string $name
  * @property int $theme_id
@@ -18,6 +14,7 @@ use mysql_xdevapi\Table;
  * @property string $reference_key
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Entity newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Entity newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Entity query()
@@ -28,6 +25,7 @@ use mysql_xdevapi\Table;
  * @method static \Illuminate\Database\Eloquent\Builder|Entity whereReferenceKey($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Entity whereThemeId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Entity whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class Entity extends Model
@@ -37,6 +35,7 @@ class Entity extends Model
     protected $table = 'entities';
 
     protected $fillable = [
+        'entity_id',
         'name',
         'theme_id',
         'api_key',

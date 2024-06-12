@@ -8,12 +8,13 @@ return new class extends Migration {
 
     public function up(): void
     {
-        Schema::create('entities', function (Blueprint $table) {
+        Schema::create('urls', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->foreignId('theme_id')->nullable()->constrained('themes');
-            $table->string('api_key')->nullable();
-            $table->string('reference_key')->nullable();
+            $table->string('authentication_url');
+            $table->string('server_url');
+            $table->string('payment_base_url');
+            $table->string('api_key');
+            $table->string('reference_key');
             $table->timestamps();
         });
     }
@@ -21,6 +22,6 @@ return new class extends Migration {
 
     public function down(): void
     {
-        Schema::dropIfExists('entities');
+        Schema::dropIfExists('urls');
     }
 };

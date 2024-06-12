@@ -11,18 +11,15 @@ use Illuminate\View\View;
 
 class ThemeController extends Controller
 {
-
     public function index(ThemesDataTable $dataTable)
     {
         return $dataTable->render('pages.themes.index');
     }
 
-
     public function create(): View
     {
         return view('pages.themes.create');
     }
-
 
     public function store(ThemeStoreRequest $request): JsonResponse
     {
@@ -60,7 +57,6 @@ class ThemeController extends Controller
         return view('pages.themes.edit', compact('theme'));
     }
 
-
     public function update(ThemeUpdateRequest $request, string $id): JsonResponse
     {
         $theme = Theme::findOrFail($id);
@@ -74,11 +70,9 @@ class ThemeController extends Controller
             Theme::query()->where('id', '<>', $theme->id)->update(['is_default' => false]);
         }
 
-
         $theme->fill($data);
         $theme->is_default = $isDefault;
         $theme->save();
-
 
         if ($request->hasFile('logo')) {
             $theme->clearMediaCollection('logos');
@@ -92,5 +86,4 @@ class ThemeController extends Controller
 
         return response()->json(['success' => true]);
     }
-
 }

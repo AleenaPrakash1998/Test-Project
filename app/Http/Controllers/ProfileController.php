@@ -12,12 +12,10 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
-
     public function edit(): View
     {
         return view('pages.profile.edit');
     }
-
 
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
@@ -31,7 +29,6 @@ class ProfileController extends Controller
 
         return redirect()->route('profile.edit')->with('success', 'Password changed Successfully');
     }
-
 
     public function destroy(Request $request): RedirectResponse
     {

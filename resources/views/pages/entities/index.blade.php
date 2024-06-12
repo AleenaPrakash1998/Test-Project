@@ -17,12 +17,19 @@
                                 <span class="position-absolute" style="top: 10px;right: 8px"><i
                                         class='bx bx-search'></i></span>
                             </div>
+                            {{--                            <div class="col-6">--}}
+                            {{--                                <button type="submit" class="btn btn-primary w-100"><span--}}
+                            {{--                                        class="d-flex justify-content-center align-items-center">--}}
+                            {{--                                        <i class='bx bx-refresh'></i>&nbsp;&nbsp;Sync--}}
+                            {{--                                    </span>--}}
+                            {{--                                </button>--}}
+                            {{--                            </div>--}}
                             <div class="col-6">
-                                <button type="submit" class="btn btn-primary w-100"><span
-                                        class="d-flex justify-content-center align-items-center">
+                                <a href="#" id="syncButton" class="btn btn-primary w-100">
+                                    <span class="d-flex justify-content-center align-items-center">
                                         <i class='bx bx-refresh'></i>&nbsp;&nbsp;Sync
                                     </span>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -89,6 +96,21 @@
             });
         });
 
+        document.getElementById('syncButton').addEventListener('click', function (event) {
+            event.preventDefault();
+            let form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '{{ route('entities.store') }}';
+
+            let csrfInput = document.createElement('input');
+            csrfInput.type = 'hidden';
+            csrfInput.name = '_token';
+            csrfInput.value = '{{ csrf_token() }}';
+            form.appendChild(csrfInput);
+
+            document.body.appendChild(form);
+            form.submit();
+        });
     </script>
 @endpush
 
