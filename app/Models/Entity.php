@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use mysql_xdevapi\Table;
 
 
@@ -42,4 +43,8 @@ class Entity extends Model
         'reference_key',
     ];
 
+    public function theme(): BelongsTo
+    {
+        return $this->belongsTo(Theme::class);
+    }
 }

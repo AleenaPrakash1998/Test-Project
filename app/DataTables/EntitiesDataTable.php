@@ -19,7 +19,8 @@ class EntitiesDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->addColumn('action', 'pages.entities._columns.action')
             ->addColumn('menu', 'pages.entities._columns.menu')
-            ->rawColumns(['action', 'menu'])
+            ->editColumn('theme_id', 'pages.entities._columns.theme')
+            ->rawColumns(['action', 'menu', 'theme_id'])
             ->setRowId('id');
     }
 
@@ -52,7 +53,6 @@ class EntitiesDataTable extends DataTable
                 ->exportable(false)
                 ->printable(false)
                 ->orderable(false)
-                ->width(60)
                 ->addClass('text-center'),
 
         ];

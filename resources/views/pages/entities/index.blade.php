@@ -50,9 +50,9 @@
             }).done(function (data) {
                 $('#editModal').modal('show');
                 $('#name').val(data?.name);
-                // $('#reference-key').val(data?.reference_key);
+                $('#reference-key').val(data?.reference_key);
                 $('#exampleFormControlSelect1').val(data?.theme_id);
-                // $('#api-key').val(data?.api_key);
+                $('#api-key').val(data?.api_key);
                 $('#entity-update-form').data('entity-id', id);
             }).fail(function (jqXHR, textStatus, errorThrown) {
                 console.log(jqXHR);
@@ -78,8 +78,10 @@
                 processData: false,
                 contentType: false,
                 success: function (response) {
+                    $('#entities-table').DataTable().draw();
                     $('#editModal').modal('hide');
                     $('#successModal').modal('show');
+
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     console.log(xhr);
