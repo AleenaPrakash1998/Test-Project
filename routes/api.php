@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\EntityController;
 use App\Http\Controllers\Api\UrlController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,4 +18,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('api')->group(function () {
     Route::get('urls', UrlController::class);
+    Route::get('entities/{id}', EntityController::class);
 });
