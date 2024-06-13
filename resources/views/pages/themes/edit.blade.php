@@ -28,18 +28,19 @@
                         </div>
                         <div class="mb-3">
                             <label for="defaultFormControlInput" class="form-label">Theme logo</label>
-                            <div class="d-flex gap-3 align-items-center">
+                            <div class="d-flex align-items-center">
                                 @if ($theme->getLogoUrl())
                                     <div class="mb-2">
                                         <img src="{{ $theme->getLogoUrl() }}" alt="Current Theme Logo"
-                                             style="max-height: 90px; width: 90px" id="current-logo">
+                                             style="height: 90px; width: 90px" id="current-logo">
                                     </div>
                                 @endif
                                 <div class="mb-2">
-                                    <img src="#" alt="New Theme Logo" style="max-height: 90px; display:none;"
+                                    <img src="#" alt="New Theme Logo"
+                                         style="height: 90px;  width: 90px; display:none;"
                                          id="new-logo">
                                 </div>
-                                <div>
+                                <div class="ms-4">
                                     <label for="logFile" class="btn btn-primary mb-2">Upload new logo</label>
                                     <p class="fw-medium">Allowed JPG, GIF or PNG. Max size of 800K</p>
                                 </div>
@@ -52,21 +53,22 @@
                         </div>
                         <div class="mb-3">
                             <label for="defaultFormControlInput" class="form-label">Banner Image</label>
-                            <div class="d-flex gap-3 align-items-center">
+                            <div class="d-flex align-items-center">
                                 @if ($theme->getBannerUrl())
                                     <div class="mb-2">
                                         <img src="{{ $theme->getBannerUrl() }}" alt="Current Banner Image"
-                                             style="max-height: 90px; width: 90px" id="current-banner">
+                                             style="height: 90px; width: 90px" id="current-banner">
                                     </div>
                                 @endif
                                 <div class="mb-2">
-                                    <img src="#" alt="New Banner Image" style="max-height: 90px; display:none;"
+                                    <img src="#" alt="New Banner Image"
+                                         style="height: 90px;  width: 90px; display:none;"
                                          id="new-banner">
                                 </div>
-                                    <div>
-                                        <label for="bannerFile" class="btn btn-primary mb-2">Upload new logo</label>
-                                        <p class="fw-medium">Allowed JPG, GIF or PNG. Max size of 800K</p>
-                                    </div>
+                                <div class="ms-4">
+                                    <label for="bannerFile" class="btn btn-primary mb-2">Upload new logo</label>
+                                    <p class="fw-medium">Allowed JPG, GIF or PNG. Max size of 800K</p>
+                                </div>
                                 <input class="form-control" type="file" id="bannerFile" name="banner_image"
                                        onchange="readURL(this, 'new-banner', 'current-banner');" style="display: none">
                                 @if ($errors->has('banner_image'))
