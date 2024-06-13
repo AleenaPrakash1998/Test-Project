@@ -126,4 +126,23 @@
     .select2-container--default .select2-selection--multiple .select2-selection__choice__display {
         color: #C39F74 !important;
     }
+
+    .select2-selection__clear {
+        display: none;
+    }
+
+    .select2-selection--multiple::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        margin-top: -2px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 5px 5px 0 5px;
+        border-color: #999 transparent transparent transparent;
+        pointer-events: none;
+    }
+
 </style>
