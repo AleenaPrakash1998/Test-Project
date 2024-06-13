@@ -32,7 +32,7 @@
                                 @if ($theme->getLogoUrl())
                                     <div class="mb-2">
                                         <img src="{{ $theme->getLogoUrl() }}" alt="Current Theme Logo"
-                                             style="max-height: 90px;" id="current-logo">
+                                             style="max-height: 90px; width: 90px" id="current-logo">
                                     </div>
                                 @endif
                                 <div class="mb-2">
@@ -56,7 +56,7 @@
                                 @if ($theme->getBannerUrl())
                                     <div class="mb-2">
                                         <img src="{{ $theme->getBannerUrl() }}" alt="Current Banner Image"
-                                             style="max-height: 90px;" id="current-banner">
+                                             style="max-height: 90px; width: 90px" id="current-banner">
                                     </div>
                                 @endif
                                 <div class="mb-2">
