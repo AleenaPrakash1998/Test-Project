@@ -100,7 +100,7 @@
 
             <div class="col-md-6">
                 <div class="card mb-4">
-                    <h5 class="card-header fw-semibold">Button Colors</h5>
+                    <h5 class="card-header fw-semibold">Text Colors</h5>
                     <div class="card-body">
                         <div class="mb-3">
                             <div>
