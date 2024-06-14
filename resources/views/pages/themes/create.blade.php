@@ -4,7 +4,8 @@
         <div class="card-body">
             <h1 class="mb-0 fw-semibold fs-5">Set your new theme</h1>
             <p class="card-text pt-2">
-                Some quick example text to build on the card title and make up the bulk of the card's content.
+                Define your project&#39;s new look. Easily set up a new theme with our intuitive
+                customization tool.
             </p>
         </div>
     </div>
@@ -213,9 +214,8 @@
         <div class="card mb-4">
             <div class="card-body">
                 <div class="card-text alert bg-primary">
-                    <p class="card-text pt-2">Lorem ipsum dolor sit amet consectetur. Scelerisque vivamus quam vulputate
-                        tellus pharetra egestas.
-                        Suspendisse egestas egestas diam eget.
+                    <p class="card-text pt-2">Define your project&#39;s new look. Easily set up a new theme with our intuitive
+                        customization tool.
                     </p>
                 </div>
                 <div class="d-flex align-items-center">

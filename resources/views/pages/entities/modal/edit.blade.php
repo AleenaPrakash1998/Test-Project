@@ -8,7 +8,7 @@
                 <div class="text-center">
                     <img src="{{ asset('assets/img/icons/unicons/modal.png') }}" alt="Icon">
                     <h5 class="modal-title mt-4" id="exampleModalLabel">Edit Entity</h5>
-                    <p>Lorem ipsum lorem ipsum</p>
+                    <p>Modify and update entities.</p>
 
                 </div>
                 <form id="entity-update-form" method="post" action="" enctype="multipart/form-data">

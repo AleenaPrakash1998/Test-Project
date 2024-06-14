@@ -7,7 +7,7 @@
                     <h3 class="card-header">Themes</h3>
                     <div class="d-flex justify-content-between">
                         <div class="px-4">
-                            <p>Lorem ipsum dolor sit amet consectetur. Tristique pretium pulvinar diam enim.</p>
+                            <p>Browse through and select themes to enhance your project&#39;s visual appeal.</p>
                         </div>
                         <div class="d-flex gap-2">
                             <div class="position-relative">

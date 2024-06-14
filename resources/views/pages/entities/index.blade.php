@@ -7,7 +7,7 @@
                     <h3 class="card-header">Entities</h3>
                     <div class="d-flex justify-content-between">
                         <div class="px-4">
-                            <p>Lorem ipsum dolor sit amet consectetur. Tristique pretium pulvinar diam enim.</p>
+                            <p>Find and map project themes easily with our comprehensive entity mapping tool.</p>
                         </div>
                         <div class="d-flex gap-2">
                             <div class="position-relative">
