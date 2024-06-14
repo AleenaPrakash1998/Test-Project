@@ -35,7 +35,7 @@
                     </a>
                 </li>
                 <li class="menu-item {{ Request::is('urls*') ? 'active' : '' }}">
-                    <a href="{{ route('urls.index') }}"
+                    <a href="{{ route('settings.index') }}"
                        class="menu-link {{ Request::is('urls*') ? 'active' : '' }}">
                         <div data-i18n="Container"><span class="me-2"><i class='bx bx-link'></i></span>Settings</div>
                     </a>

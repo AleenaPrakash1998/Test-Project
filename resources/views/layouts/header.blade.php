@@ -9,10 +9,16 @@
 
     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
 
-        <span class="text-secondary fw-bold opacity-50">Dashboard </span>
-        &nbsp;
         <span
-            class="fw-bold navbar-brand mb-0 h1 px-1 text-secondary"> > {{ ucfirst(explode('.', Route::currentRouteName())[0]) }}</span>
+            class="text-secondary fw-bold opacity-50"> {{ ucfirst(explode('.', Route::currentRouteName())[0]) }} </span>
+        {{--        &nbsp;--}}
+        {{--        <span--}}
+        {{--            class="fw-bold navbar-brand mb-0 h1 px-1 text-secondary"> > {{ ucfirst(explode('.', Route::currentRouteName())[0]) }}</span>--}}
+        &nbsp;
+        @if (!in_array(explode('.', Route::currentRouteName())[1], ['index']))
+            <span class="fw-bold navbar-brand mb-0 h1 px-1 text-secondary"> > {{ ucfirst(explode('.', Route::currentRouteName())[1]) }}
+       </span>
+        @endif
         <ul class="navbar-nav flex-row align-items-center ms-auto">
             <!-- Place this tag where you want the button to render. -->
             <li class="nav-item lh-1 me-3 fw-semibold" style="color: var(--bs-heading-color)">

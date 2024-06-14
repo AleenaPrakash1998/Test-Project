@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <form id="url-update-form" action="{{ route('urls.update', $url->id) }}" enctype="multipart/form-data">
+        <form id="url-update-form" action="{{ route('settings.update', $url->id) }}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
             <div class="row">
@@ -95,7 +95,7 @@
                 console.log(form.valid());
                 if (form.valid()) {
                     $.ajax({
-                        url: "{{route('urls.update', $url->id)}}",
+                        url: "{{route('settings.update', $url->id)}}",
                         type: 'POST',
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
@@ -108,7 +108,7 @@
 
                             $('#successModal .btn-close, #successModal .btn-primary').on('click', function () {
                                 $('#successModal').modal('hide');
-                                window.location.href = "{{ route('urls.index') }}";
+                                window.location.href = "{{ route('settings.index') }}";
                             });
                         },
                         error: function (xhr, textStatus, errorThrown) {
