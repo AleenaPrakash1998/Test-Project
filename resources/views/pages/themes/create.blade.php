@@ -266,6 +266,11 @@
                 return this.optional(element) || regex.test(value);
             }, "Please enter a valid color code (e.g., #RRGGBB).");
 
+            $('#select2').on('change', function () {
+                if ($(this).valid()) {
+                    $(this).next('.text-danger').remove();
+                }
+            });
 
             $("#theme-store-form").validate({
                 rules: {
