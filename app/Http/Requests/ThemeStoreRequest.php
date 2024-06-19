@@ -7,13 +7,12 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ThemeStoreRequest extends FormRequest
 {
-
     public function rules(): array
     {
         return [
             'name' => ['required', 'string', 'max:255', 'unique:themes,name'],
-            'logo' => ['required', 'file', 'mimes:png,jpg,jpeg,gif'],
-            'banner_image' => ['required', 'file', 'mimes:png,jpg,jpeg,gif'],
+            'logo' => ['required', 'file', 'mimes:png,jpg,jpeg'],
+            'banner_image' => ['required', 'file', 'mimes:png,jpg,jpeg'],
             'menu_name' => ['required'],
             'menu_name.*' => ['string'],
             'text_heading' => ['required', 'string', new ColorCode],

@@ -19,7 +19,7 @@
                             </div>
                             <div>
                                 <button type="submit" class="btn btn-primary"
-                                        onclick="window.location.href='{{ route('themes.create') }}'">Create new theme
+                                        onclick="window.location.href='{{ route('themes.create') }}'">Create New Theme
                                 </button>
                             </div>
                         </div>
