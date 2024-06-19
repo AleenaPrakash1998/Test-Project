@@ -214,9 +214,8 @@
         <div class="card mb-4">
             <div class="card-body">
                 <div class="card-text alert bg-primary">
-                    <p class="card-text pt-2">Define your project&#39;s new look. Easily set up a new theme with our
-                        intuitive
-                        customization tool.
+                    <p class="card-text pt-2">Review your theme settings before saving changes. Ensure everything looks perfect for
+                        your project&#39;s new aesthetic.
                     </p>
                 </div>
                 <div class="d-flex align-items-center">
