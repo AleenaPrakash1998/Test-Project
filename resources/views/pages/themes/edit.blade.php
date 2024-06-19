@@ -116,7 +116,7 @@
                                 <div id="color-picker-rgb" class="input-group colorpicker-component">
                                     <input id="primary-color-picker" type="text" class="form-control"
                                            name="button_primary"
-                                           value="{{ old('button_primary', bin2hex($theme->button_primary)) }}"/>
+                                           value="{{ old('button_primary',$theme->button_primary) }}"/>
                                     <span class="input-group-addon position-absolute end-0 p-2"><i
                                             class='bx bx-color'></i></span>
                                 </div>
@@ -133,7 +133,7 @@
                                 <div id="color-picker-rgb" class="input-group colorpicker-component position-relative">
                                     <input id="secondary-color-picker" type="text" class="form-control"
                                            name="button_secondary"
-                                           value="{{ old('button_secondary', bin2hex($theme->button_secondary)) }}"/>
+                                           value="{{ old('button_secondary', $theme->button_secondary) }}"/>
                                     <span class="input-group-addon position-absolute end-0 p-2"><i
                                             class='bx bx-color'></i></span>
                                 </div>
@@ -156,7 +156,7 @@
                             </div>
                             <div id="color-picker-rgb" class="input-group colorpicker-component">
                                 <input id="heading-color-picker" type="text" class="form-control" name="text_heading"
-                                       value="{{ old('text_heading', bin2hex($theme->text_heading)) }}"/>
+                                       value="{{ old('text_heading', $theme->text_heading) }}"/>
                                 <span class="input-group-addon position-absolute end-0 p-2"><i
                                         class='bx bx-color'></i></span>
                             </div>
@@ -173,7 +173,7 @@
                             <div>
                                 <div id="color-picker-rgb" class="input-group colorpicker-component">
                                     <input id="title-color-picker" type="text" class="form-control" name="text_title"
-                                           value="{{ old('text_title', bin2hex($theme->text_title)) }}"/>
+                                           value="{{ old('text_title', $theme->text_title) }}"/>
                                     <span class="input-group-addon position-absolute end-0 p-2"><i
                                             class='bx bx-color'></i></span>
                                 </div>
@@ -190,7 +190,7 @@
                             <div>
                                 <div id="color-picker-rgb" class="input-group colorpicker-component">
                                     <input id="body-color-picker" type="text" class="form-control" name="text_body"
-                                           value="{{ old('text_body', bin2hex($theme->text_body)) }}"/>
+                                           value="{{ old('text_body', $theme->text_body) }}"/>
                                     <span class="input-group-addon position-absolute end-0 p-2"><i
                                             class='bx bx-color'></i></span>
                                 </div>
@@ -213,7 +213,7 @@
                                 <div id="color-picker-rgb" class="input-group colorpicker-component">
                                     <input id="dashboard-color-picker" type="text" class="form-control"
                                            name="dashboard"
-                                           value="{{ old('dashboard',  bin2hex($theme->dashboard)) }}"/>
+                                           value="{{ old('dashboard',  $theme->dashboard) }}"/>
                                     <span class="input-group-addon position-absolute end-0 p-2"><i
                                             class='bx bx-color'></i></span>
                                 </div>
@@ -230,7 +230,7 @@
                             <div>
                                 <div id="color-picker-rgb" class="input-group colorpicker-component">
                                     <input id="menu-color-picker" type="text" class="form-control" name="menu"
-                                           value="{{ old('menu', bin2hex($theme->menu)) }}"/>
+                                           value="{{ old('menu',$theme->menu) }}"/>
                                     <span class="input-group-addon position-absolute end-0 p-2"><i
                                             class='bx bx-color'></i></span>
                                 </div>
@@ -247,7 +247,7 @@
                             <div>
                                 <div id="color-picker-rgb" class="input-group colorpicker-component">
                                     <input id="navbar-color-picker" type="text" class="form-control" name="navbar"
-                                           value="{{ old('navbar', bin2hex($theme->navbar)) }}"/>
+                                           value="{{ old('navbar', $theme->navbar) }}"/>
                                     <span class="input-group-addon position-absolute end-0 p-2"><i
                                             class='bx bx-color'></i></span>
                                 </div>
@@ -263,7 +263,8 @@
         <div class="card mb-4">
             <div class="card-body">
                 <div class="card-text alert bg-primary">
-                    <p class="card-text pt-2">Define your project&#39;s new look. Easily set up a new theme with our intuitive
+                    <p class="card-text pt-2">Define your project&#39;s new look. Easily set up a new theme with our
+                        intuitive
                         customization tool.
                     </p>
                 </div>
