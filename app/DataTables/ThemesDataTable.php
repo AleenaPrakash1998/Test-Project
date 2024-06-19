@@ -18,12 +18,13 @@ class ThemesDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
+            ->addColumn('name', 'pages.themes._columns.name')
             ->addColumn('action', 'pages.themes._columns.action')
             ->addColumn('logo', 'pages.themes._columns.logo')
             ->editColumn('menu_name', function ($model) {
                 return view('pages.themes._columns.menu', compact('model'))->render();
             })
-            ->rawColumns(['action', 'menu_name', 'logo'])
+            ->rawColumns(['action', 'menu_name', 'logo', 'name'])
             ->setRowId('id');
     }
 
