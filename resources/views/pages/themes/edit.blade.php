@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="ms-4">
                                     <label for="logFile" class="btn btn-primary mb-2">Upload new logo</label>
-                                    <p class="fw-medium">Allowed JPG, GIF or PNG. Max size of 800K</p>
+                                    <p class="fw-medium">Allowed JPG, JPEG or PNG.</p>
                                 </div>
                                 <input class="form-control" type="file" id="logFile" name="logo"
                                        onchange="readURL(this, 'new-logo', 'current-logo');" style="display: none">
@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="ms-4">
                                     <label for="bannerFile" class="btn btn-primary mb-2">Upload new logo</label>
-                                    <p class="fw-medium">Allowed JPG, GIF or PNG. Max size of 800K</p>
+                                    <p class="fw-medium">Allowed JPG, JPEG or PNG.</p>
                                 </div>
                                 <input class="form-control" type="file" id="bannerFile" name="banner_image"
                                        onchange="readURL(this, 'new-banner', 'current-banner');" style="display: none">
@@ -356,15 +356,23 @@
                     required: true,
                     colorCode: true,
                 },
+                banner_image: {
+                    required: true,
+                    accept: "jpeg|jpg|png"
+                },
+                logo: {
+                    required: true,
+                    accept: "jpeg|jpg|png"
+                },
             },
             messages: {
                 logo: {
                     required: "Please select a logo image.",
-                    extension: "Please select a valid image file (png, jpg, jpeg, gif)."
+                    extension: "Please select a valid image file (png, jpg, jpeg)."
                 },
                 banner_image: {
                     required: "Please select a banner image.",
-                    extension: "Please select a valid image file (png, jpg, jpeg, gif)."
+                    extension: "Please select a valid image file (png, jpg, jpeg)."
                 },
                 'menu_name[]': {
                     required: "Please select at least one menu item."
@@ -398,6 +406,8 @@
         $('#submit-form').click(function (event) {
             event.preventDefault();
             let form = $('#theme-update-form');
+
+            $('.text-danger').remove();
 
             let formData = new FormData(form[0]);
 
