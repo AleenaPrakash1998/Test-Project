@@ -281,7 +281,7 @@
                         <button type="submit" class="btn btn-primary" id="submit-form">Save Changes</button>
                     </div>
                     <div class="col-auto">
-                        <button type="button" class="btn btn-outline-secondary">Cancel</button>
+                        <button type="button" class="btn btn-outline-secondary" id="cancel-form">Cancel</button>
                     </div>
                 </div>
             </div>
@@ -306,8 +306,13 @@
             $('#primary-color-picker').colorpicker();
             $('#secondary-color-picker').colorpicker();
         });
+
         $(document).ready(function () {
             $('.js-example-basic-multiple').select2({width: '100%'});
+        });
+
+        $('#cancel-form').click(function () {
+            window.location.href = "{{ route('themes.index') }}";
         });
 
         $.validator.addMethod("colorCode", function (value, element) {

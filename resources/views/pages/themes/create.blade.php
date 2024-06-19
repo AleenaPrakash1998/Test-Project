@@ -233,7 +233,7 @@
                         </button>
                     </div>
                     <div class="col-auto">
-                        <button type="button" class="btn btn-outline-secondary">Cancel</button>
+                        <button type="button" class="btn btn-outline-secondary" id="cancel-form">Cancel</button>
                     </div>
                 </div>
             </div>
@@ -257,6 +257,9 @@
             $('#primary-color-picker').colorpicker();
             $('#secondary-color-picker').colorpicker();
 
+            $('#cancel-form').click(function () {
+                window.location.href = "{{ route('themes.index') }}";
+            });
 
             $.validator.addMethod("colorCode", function (value, element) {
                 let regex = /^#([0-9A-F]{3}){1,2}$/i;
