@@ -214,7 +214,8 @@
         <div class="card mb-4">
             <div class="card-body">
                 <div class="card-text alert bg-primary">
-                    <p class="card-text pt-2">Define your project&#39;s new look. Easily set up a new theme with our intuitive
+                    <p class="card-text pt-2">Define your project&#39;s new look. Easily set up a new theme with our
+                        intuitive
                         customization tool.
                     </p>
                 </div>
@@ -228,7 +229,7 @@
                         </div>
                     </div>
                     <div class="col-auto me-3">
-                        <button type="submit" class="btn btn-primary" id="submit-form">Save Changes
+                        <button type="submit" class="btn btn-primary" id="submit-form">Create Theme
                         </button>
                     </div>
                     <div class="col-auto">
