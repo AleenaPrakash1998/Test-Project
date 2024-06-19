@@ -8,8 +8,11 @@
                 </div>
                 <div class="card-body">
                     <div class="card-text alert bg-primary">
-                        <p class="fw-semibold w-75 p-1">Ensure that these requirements are met
-                            Minimum 8 characters long, uppercase & symbol</p>
+                        <p class="fw-semibold p-1">
+                            Your new password must be at least 8 characters long and include at least one uppercase
+                            letter,
+                            one lowercase letter, one digit, and one special character.
+                        </p>
                     </div>
                     @if ($errors->any())
                         <div class="alert alert-danger">

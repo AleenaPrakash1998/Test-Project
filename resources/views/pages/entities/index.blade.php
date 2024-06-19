@@ -114,3 +114,8 @@
     </script>
 @endpush
 
+<style>
+    .edit-modal:focus{
+        color: #7D7B7B!important;
+    }
+</style>
