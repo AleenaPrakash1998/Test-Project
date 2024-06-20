@@ -27,7 +27,10 @@
                             <div class="col-6">
                                 <a href="#" id="syncButton" class="btn btn-primary w-100">
                                     <span class="d-flex justify-content-center align-items-center">
-                                        <i class='bx bx-refresh'></i>&nbsp;&nbsp;Sync
+                                        <i class='bx bx-refresh'></i>&nbsp;&nbsp;Sync&nbsp;&nbsp;
+                                        <div id="syncLoader" class="spinner-border spinner-border-sm d-none"
+                                             role="status"><span class="visually-hidden">Loading...</span>
+                                        </div>
                                     </span>
                                 </a>
                             </div>
@@ -111,11 +114,38 @@
             document.body.appendChild(form);
             form.submit();
         });
+
+        document.getElementById('syncButton').addEventListener('click', function (event) {
+            event.preventDefault();
+
+            // Show loader
+            $('#syncIcon').addClass('d-none');
+            $('#syncLoader').removeClass('d-none');
+
+            let form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '{{ route('entities.store') }}';
+
+            let csrfInput = document.createElement('input');
+            csrfInput.type = 'hidden';
+            csrfInput.name = '_token';
+            csrfInput.value = '{{ csrf_token() }}';
+            form.appendChild(csrfInput);
+
+            document.body.appendChild(form);
+            form.submit();
+        });
     </script>
 @endpush
 
 <style>
-    .edit-modal:focus{
-        color: #7D7B7B!important;
+    .edit-modal:focus {
+        color: #7D7B7B !important;
+    }
+
+    .spinner-border {
+        width: 1.5rem;
+        height: 1.5rem;
+        color: #fff;
     }
 </style>

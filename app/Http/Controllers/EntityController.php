@@ -34,7 +34,7 @@ class EntityController extends Controller
         $tokenResponse = Http::post($url->authentication_url);
         $authToken = $tokenResponse->json('access_token');
 
-        $apiUrl = $url->server_url.'/lvt_legalentities';
+        $apiUrl = $url->server_url . '/lvt_legalentities';
         $fetchXml = '
             <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
               <entity name="lvt_legalentity">
@@ -63,7 +63,7 @@ class EntityController extends Controller
             );
         }
 
-        return redirect()->route('entities.index')->with('success', 'synced');
+        return redirect()->route('entities.index')->with('success', 'Entity synced successfully');
     }
 
     public function show(Entity $entity)
