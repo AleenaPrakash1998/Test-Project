@@ -429,4 +429,9 @@
     .input-group-addon {
         padding: 0.75rem !important;
     }
+
+    .colorpicker-alpha {
+        display: none !important;
+    }
+
 </style>
