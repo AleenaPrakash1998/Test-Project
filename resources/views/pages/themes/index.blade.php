@@ -11,7 +11,7 @@
                         </div>
                         <div class="d-flex gap-2">
                             <div class="position-relative">
-                                <input type="text" class="form-control" id="filter-user-search" autocomplete="off"
+                                <input type="text" class="form-control" id="filter-theme-search" autocomplete="off"
                                        placeholder="Search.." data-dt-toggle="search"
                                        data-dt-target="#themes-table">
                                 <span class="position-absolute" style="top: 10px;right: 8px"><i

@@ -24,6 +24,9 @@ class ThemesDataTable extends DataTable
             ->editColumn('menu_name', function ($model) {
                 return view('pages.themes._columns.menu', compact('model'))->render();
             })
+            ->filterColumn('name', function ($query, $keyword) {
+                $query->whereRaw("name like ?", ["%{$keyword}%"]);
+            })
             ->rawColumns(['action', 'menu_name', 'logo', 'name'])
             ->setRowId('id');
     }
