@@ -22,7 +22,7 @@ class ThemeStoreRequest extends FormRequest
             'button_secondary' => ['required', 'string', new ColorCode],
             'dashboard' => ['required', 'string', new ColorCode],
             'menu' => ['required', 'string', new ColorCode],
-            'navbar' => ['required', 'string', new ColorCode],
+            'header' => ['required', 'string', new ColorCode],
             'is_default' => ['nullable', 'boolean'],
         ];
     }

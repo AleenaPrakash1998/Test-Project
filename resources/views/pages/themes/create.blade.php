@@ -106,7 +106,7 @@
                     <div class="card-body">
                         <div class="mb-3">
                             <div>
-                                <label for="colorPicker" class="form-label">Headings</label>
+                                <label for="colorPicker" class="form-label">Heading Primary</label>
                             </div>
                             <div id="color-picker-rgb" class="input-group colorpicker-component">
                                 <input id="heading-color-picker" type="text" class="form-control" name="text_heading"
@@ -115,6 +115,22 @@
                                         class='bx bx-color'></i></span>
                             </div>
                             @error('text_heading')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
+                        </div>
+                        <div class="mb-3">
+                            <div>
+                                <label for="colorPicker" class="form-label">Heading Secondary</label>
+                            </div>
+                            <div id="color-picker-rgb" class="input-group colorpicker-component">
+                                <input id="heading-secondary-color-picker" type="text" class="form-control"
+                                       name="text_heading_secondary"
+                                       value="{{ old('text_heading_secondary') }}"/>
+                                <span class="input-group-addon position-absolute end-0"><i
+                                        class='bx bx-color'></i></span>
+                            </div>
+                            @error('text_heading_secondary')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
 
@@ -194,17 +210,17 @@
                         </div>
                         <div class="mb-3">
                             <div>
-                                <label for="colorPicker" class="form-label">Navbar</label>
+                                <label for="colorPicker" class="form-label">Header</label>
                             </div>
 
                             <div>
                                 <div id="color-picker-rgb" class="input-group colorpicker-component">
-                                    <input id="navbar-color-picker" type="text" class="form-control" name="navbar"
-                                           value="{{ old('navbar') }}"/>
+                                    <input id="header-color-picker" type="text" class="form-control" name="header"
+                                           value="{{ old('header') }}"/>
                                     <span class="input-group-addon position-absolute end-0"><i
                                             class='bx bx-color'></i></span>
                                 </div>
-                                @error('navbar')
+                                @error('header')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -254,10 +270,11 @@
             $('#body-color-picker').colorpicker();
             $('#title-color-picker').colorpicker();
             $('#menu-color-picker').colorpicker();
-            $('#navbar-color-picker').colorpicker();
+            $('#header-color-picker').colorpicker();
             $('#dashboard-color-picker').colorpicker();
             $('#primary-color-picker').colorpicker();
             $('#secondary-color-picker').colorpicker();
+            $('#heading-secondary-color-picker').colorpicker();
 
             $('#cancel-form').click(function () {
                 window.location.href = "{{ route('themes.index') }}";
@@ -292,6 +309,10 @@
                         required: true,
                         colorCode: true,
                     },
+                    text_heading_secondary: {
+                        required: true,
+                        colorCode: true,
+                    },
                     text_title: {
                         required: true,
                         colorCode: true,
@@ -316,7 +337,7 @@
                         required: true,
                         colorCode: true,
                     },
-                    navbar: {
+                    header: {
                         required: true,
                         colorCode: true,
                     },
@@ -343,11 +364,12 @@
                             error.insertAfter(element.next('.select2-container'));
                         } else if (element.attr("name") === "banner_image" ||
                             element.attr("name") === "text_heading" ||
+                            element.attr("name") === "text_heading_secondary" ||
                             element.attr("name") === "text_title" ||
                             element.attr("name") === "text_body" ||
                             element.attr("name") === "button_primary" ||
                             element.attr("name") === "button_secondary" ||
-                            element.attr("name") === "navbar" ||
+                            element.attr("name") === "header" ||
                             element.attr("name") === "menu" ||
                             element.attr("name") === "dashboard") {
                             error.appendTo(element.closest(".mb-3"));

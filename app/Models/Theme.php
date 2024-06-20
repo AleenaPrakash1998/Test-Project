@@ -9,8 +9,6 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
 /**
- *
- *
  * @property int $id
  * @property string $name
  * @property string $text_heading
@@ -24,6 +22,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  * @property int $is_default
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Theme newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Theme newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Theme query()
@@ -40,6 +39,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  * @method static \Illuminate\Database\Eloquent\Builder|Theme whereTextHeading($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Theme whereTextTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Theme whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class Theme extends Model implements HasMedia
@@ -48,6 +48,7 @@ class Theme extends Model implements HasMedia
     use InteractsWithMedia;
 
     protected $table = 'themes';
+
     protected $fillable = [
         'name',
         'text_heading',
@@ -57,9 +58,10 @@ class Theme extends Model implements HasMedia
         'button_secondary',
         'dashboard',
         'menu',
-        'navbar',
+        'header',
         'is_default',
         'menu_name',
+        'text_heading_secondary',
     ];
 
     protected $casts = [
