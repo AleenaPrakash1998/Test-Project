@@ -107,7 +107,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card mb-4">
+                <div class="card mb-4" style="padding-bottom: 41px!important;">
                     <h5 class="card-header fw-semibold">Button Colors</h5>
                     <div class="card-body">
                         <div class="mb-3">
@@ -292,8 +292,7 @@
                             <input class="form-check-input" type="hidden" name="is_default" value="0">
                             <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"
                                    name="is_default" value="1" {{ $theme->is_default ? 'checked' : '' }}>
-                            <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox
-                                input</label>
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Default theme</label>
                         </div>
                     </div>
                     <div class="col-auto me-3">
