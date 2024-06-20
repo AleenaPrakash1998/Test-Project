@@ -33,3 +33,4 @@
 @push('custom-scripts')
     {{ $dataTable->scripts() }}
 @endpush
+

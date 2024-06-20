@@ -27,7 +27,7 @@
                         <div class="mb-3">
                             <label for="defaultFormControlInput" class="form-label">Theme logo</label>
                             <input class="form-control" type="file" id="logFile" name="logo" value="{{ old('logo') }}"
-                                   accept="image/png, image/jpg, image/jpeg">
+                                   accept="image/png, image/jpg, image/jpeg, image/svg">
                             @if ($errors->has('logo'))
                                 <div class="text-danger">{{ $errors->first('logo') }}</div>
                             @endif
@@ -35,7 +35,8 @@
                         <div class="mb-3">
                             <label for="defaultFormControlInput" class="form-label">Banner Image</label>
                             <input class="form-control" type="file" id="bannerFile" name="banner_image"
-                                   value="{{ old('banner_image') }}" accept="image/png, image/jpg, image/jpeg">
+                                   value="{{ old('banner_image') }}"
+                                   accept="image/png, image/jpg, image/jpeg, image/svg">
                             @if ($errors->has('banner_image'))
                                 <div class="text-danger">{{ $errors->first('banner_image') }}</div>
                             @endif
@@ -71,7 +72,7 @@
                                 <div id="color-picker-rgb" class="input-group colorpicker-component">
                                     <input id="primary-color-picker" type="text" class="form-control"
                                            name="button_primary" value="{{ old('button_primary') }}"/>
-                                    <span class="input-group-addon position-absolute end-0 p-2"><i
+                                    <span class="input-group-addon position-absolute end-0"><i
                                             class='bx bx-color'></i></span>
                                 </div>
                                 @error('button_primary')
@@ -87,7 +88,7 @@
                                 <div id="color-picker-rgb" class="input-group colorpicker-component position-relative">
                                     <input id="secondary-color-picker" type="text" class="form-control"
                                            name="button_secondary" value="{{ old('button_secondary') }}"/>
-                                    <span class="input-group-addon position-absolute end-0 p-2"><i
+                                    <span class="input-group-addon position-absolute end-0"><i
                                             class='bx bx-color'></i></span>
                                 </div>
                                 @error('button_secondary')
@@ -110,7 +111,7 @@
                             <div id="color-picker-rgb" class="input-group colorpicker-component">
                                 <input id="heading-color-picker" type="text" class="form-control" name="text_heading"
                                        value="{{ old('text_heading') }}"/>
-                                <span class="input-group-addon position-absolute end-0 p-2"><i
+                                <span class="input-group-addon position-absolute end-0"><i
                                         class='bx bx-color'></i></span>
                             </div>
                             @error('text_heading')
@@ -127,7 +128,7 @@
                                 <div id="color-picker-rgb" class="input-group colorpicker-component">
                                     <input id="title-color-picker" type="text" class="form-control" name="text_title"
                                            value="{{ old('text_title') }}"/>
-                                    <span class="input-group-addon position-absolute end-0 p-2"><i
+                                    <span class="input-group-addon position-absolute end-0"><i
                                             class='bx bx-color'></i></span>
                                 </div>
                                 @error('text_title')
@@ -144,7 +145,7 @@
                                 <div id="color-picker-rgb" class="input-group colorpicker-component">
                                     <input id="body-color-picker" type="text" class="form-control" name="text_body"
                                            value="{{ old('text_body') }}"/>
-                                    <span class="input-group-addon position-absolute end-0 p-2"><i
+                                    <span class="input-group-addon position-absolute end-0"><i
                                             class='bx bx-color'></i></span>
                                 </div>
                                 @error('text_body')
@@ -166,7 +167,7 @@
                                 <div id="color-picker-rgb" class="input-group colorpicker-component">
                                     <input id="dashboard-color-picker" type="text" class="form-control"
                                            name="dashboard" value="{{ old('dashboard') }}"/>
-                                    <span class="input-group-addon position-absolute end-0 p-2"><i
+                                    <span class="input-group-addon position-absolute end-0"><i
                                             class='bx bx-color'></i></span>
                                 </div>
                                 @error('dashboard')
@@ -183,7 +184,7 @@
                                 <div id="color-picker-rgb" class="input-group colorpicker-component">
                                     <input id="menu-color-picker" type="text" class="form-control" name="menu"
                                            value="{{ old('menu') }}"/>
-                                    <span class="input-group-addon position-absolute end-0 p-2"><i
+                                    <span class="input-group-addon position-absolute end-0"><i
                                             class='bx bx-color'></i></span>
                                 </div>
                                 @error('menu')
@@ -200,7 +201,7 @@
                                 <div id="color-picker-rgb" class="input-group colorpicker-component">
                                     <input id="navbar-color-picker" type="text" class="form-control" name="navbar"
                                            value="{{ old('navbar') }}"/>
-                                    <span class="input-group-addon position-absolute end-0 p-2"><i
+                                    <span class="input-group-addon position-absolute end-0"><i
                                             class='bx bx-color'></i></span>
                                 </div>
                                 @error('navbar')
@@ -423,5 +424,9 @@
 <style>
     .select2-container--default .select2-selection--multiple {
         border-color: #d9dee3 !important;
+    }
+
+    .input-group-addon {
+        padding: 0.75rem !important;
     }
 </style>
