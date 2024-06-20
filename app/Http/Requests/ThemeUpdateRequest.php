@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Models\Theme;
+use App\Rules\AtLeastOneDefaultTheme;
 use App\Rules\ColorCode;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
@@ -32,7 +33,7 @@ class ThemeUpdateRequest extends FormRequest
             'dashboard' => ['required', 'string', new ColorCode],
             'menu' => ['required', 'string', new ColorCode],
             'navbar' => ['required', 'string', new ColorCode],
-            'is_default' => ['nullable', 'boolean'],
+            'is_default' => ['nullable', 'boolean', new AtLeastOneDefaultTheme],
         ];
     }
 }

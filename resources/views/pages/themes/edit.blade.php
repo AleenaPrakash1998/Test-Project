@@ -46,7 +46,8 @@
                                     <p class="fw-medium">Allowed JPG, JPEG or PNG.</p>
                                 </div>
                                 <input class="form-control" type="file" id="logFile" name="logo"
-                                       onchange="readURL(this, 'new-logo', 'current-logo');" style="display: none">
+                                       onchange="readURL(this, 'new-logo', 'current-logo');" style="display: none"
+                                       accept="image/png, image/jpg, image/jpeg">
                                 @if ($errors->has('logo'))
                                     <div class="text-danger">{{ $errors->first('logo') }}</div>
                                 @endif
@@ -71,7 +72,8 @@
                                     <p class="fw-medium">Allowed JPG, JPEG or PNG.</p>
                                 </div>
                                 <input class="form-control" type="file" id="bannerFile" name="banner_image"
-                                       onchange="readURL(this, 'new-banner', 'current-banner');" style="display: none">
+                                       onchange="readURL(this, 'new-banner', 'current-banner');" style="display: none"
+                                       accept="image/png, image/jpg, image/jpeg">
                                 @if ($errors->has('banner_image'))
                                     <div class="text-danger">{{ $errors->first('banner_image') }}</div>
                                 @endif
@@ -263,13 +265,15 @@
         <div class="card mb-4">
             <div class="card-body">
                 <div class="card-text alert bg-primary">
-                    <p class="card-text pt-2">Review your theme settings before saving changes. Ensure everything looks perfect for
+                    <p class="card-text pt-2">Review your theme settings before saving changes. Ensure everything looks
+                        perfect for
                         your project&#39;s new aesthetic.
                     </p>
                 </div>
                 <div class="d-flex align-items-center">
                     <div class="me-auto">
-                        <div class="form-check form-switch mb-2">
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="hidden" name="is_default" value="0">
                             <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"
                                    name="is_default" value="1" {{ $theme->is_default ? 'checked' : '' }}>
                             <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox
@@ -395,13 +399,14 @@
                     if (element.hasClass('js-example-basic-multiple')) {
                         error.insertAfter(element.next('.select2-container'));
                     } else if (element.attr("name") === "banner_image" ||
-                        element.attr("name") === "text_heading" ||
+                        element.attr("name") === "text-heading" ||
                         element.attr("name") === "text_title" ||
                         element.attr("name") === "text_body" ||
                         element.attr("name") === "button_primary" ||
                         element.attr("name") === "button_secondary" ||
                         element.attr("name") === "navbar" ||
                         element.attr("name") === "menu" ||
+                        element.attr("name") === "is_default" ||
                         element.attr("name") === "dashboard") {
                         // For other fields
                         error.appendTo(element.closest(".mb-3"));

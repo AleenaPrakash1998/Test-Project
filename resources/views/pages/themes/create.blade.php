@@ -26,7 +26,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="defaultFormControlInput" class="form-label">Theme logo</label>
-                            <input class="form-control" type="file" id="logFile" name="logo" value="{{ old('logo') }}">
+                            <input class="form-control" type="file" id="logFile" name="logo" value="{{ old('logo') }}"
+                                   accept="image/png, image/jpg, image/jpeg">
                             @if ($errors->has('logo'))
                                 <div class="text-danger">{{ $errors->first('logo') }}</div>
                             @endif
@@ -34,7 +35,7 @@
                         <div class="mb-3">
                             <label for="defaultFormControlInput" class="form-label">Banner Image</label>
                             <input class="form-control" type="file" id="bannerFile" name="banner_image"
-                                   value="{{ old('banner_image') }}">
+                                   value="{{ old('banner_image') }}" accept="image/png, image/jpg, image/jpeg">
                             @if ($errors->has('banner_image'))
                                 <div class="text-danger">{{ $errors->first('banner_image') }}</div>
                             @endif
@@ -214,7 +215,8 @@
         <div class="card mb-4">
             <div class="card-body">
                 <div class="card-text alert bg-primary">
-                    <p class="card-text pt-2">Review your theme settings before saving changes. Ensure everything looks perfect for
+                    <p class="card-text pt-2">Review your theme settings before saving changes. Ensure everything looks
+                        perfect for
                         your project&#39;s new aesthetic.
                     </p>
                 </div>
