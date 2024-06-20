@@ -16,7 +16,7 @@
         {{--            class="fw-bold navbar-brand mb-0 h1 px-1 text-secondary"> > {{ ucfirst(explode('.', Route::currentRouteName())[0]) }}</span>--}}
         &nbsp;
         @if (!in_array(explode('.', Route::currentRouteName())[1], ['index']))
-            <span class="fw-bold navbar-brand mb-0 h1 px-1 text-secondary"> > {{ ucfirst(explode('.', Route::currentRouteName())[1]) }}
+            <span class="fw-bold navbar-brand mb-0 h1 px-1 text-secondary lh-1"> > {{ ucfirst(explode('.', Route::currentRouteName())[1]) }}
        </span>
         @endif
         <ul class="navbar-nav flex-row align-items-center ms-auto">

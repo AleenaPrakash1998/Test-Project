@@ -7,7 +7,7 @@
 
     <title>@yield('title') @hasSection('title')
             |
-        @endif Admin| Shamal</title>
+        @endif Admin | Shamal</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
