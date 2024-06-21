@@ -24,7 +24,7 @@ class ThemeResourceCollection extends JsonResource
             'button_secondary' => $this->button_secondary,
             'dashboard_primary' => $this->dashboard,
             'menu_primary' => $this->menu,
-            'header_primary' => $this->navbar,
+            'header_primary' => $this->header,
             'is_default' => $this->is_default,
             'menu_items' => $menuItems,
             'logo_url' => $logoUrl,
