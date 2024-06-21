@@ -9,8 +9,12 @@
 
     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
 
-        <span
-            class="text-secondary fw-bold opacity-50"> {{ ucfirst(explode('.', Route::currentRouteName())[0]) }} </span>
+        {{--        <span--}}
+        {{--            class="text-secondary fw-bold opacity-50"> {{ ucfirst(explode('.', Route::currentRouteName())[0]) }} </span>--}}
+        <a href="{{ route(explode('.', Route::currentRouteName())[0] . '.index') }}"
+           class="text-secondary fw-bold opacity-50">
+            {{ ucfirst(explode('.', Route::currentRouteName())[0]) }}
+        </a>
         {{--        &nbsp;--}}
         {{--        <span--}}
         {{--            class="fw-bold navbar-brand mb-0 h1 px-1 text-secondary"> > {{ ucfirst(explode('.', Route::currentRouteName())[0]) }}</span>--}}
