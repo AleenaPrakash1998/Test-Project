@@ -11,8 +11,8 @@ class ThemeStoreRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255', 'unique:themes,name'],
-            'logo' => ['required', 'file', 'mimes:png,jpg,jpeg'],
-            'banner_image' => ['required', 'file', 'mimes:png,jpg,jpeg'],
+            'logo' => ['required', 'file', 'mimes:png,jpg,jpeg,svg'],
+            'banner_image' => ['required', 'file', 'mimes:png,jpg,jpeg,svg'],
             'menu_name' => ['required'],
             'menu_name.*' => ['string'],
             'text_heading' => ['required', 'string', new ColorCode],

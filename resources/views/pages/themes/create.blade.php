@@ -27,7 +27,7 @@
                         <div class="mb-3">
                             <label for="defaultFormControlInput" class="form-label">Theme logo</label>
                             <input class="form-control" type="file" id="logFile" name="logo" value="{{ old('logo') }}"
-                                   accept="image/png, image/jpg, image/jpeg, image/svg">
+                                   accept="image/png, image/jpg, image/jpeg, image/svg+xml">
                             @if ($errors->has('logo'))
                                 <div class="text-danger">{{ $errors->first('logo') }}</div>
                             @endif
@@ -36,7 +36,7 @@
                             <label for="defaultFormControlInput" class="form-label">Banner Image</label>
                             <input class="form-control" type="file" id="bannerFile" name="banner_image"
                                    value="{{ old('banner_image') }}"
-                                   accept="image/png, image/jpg, image/jpeg, image/svg">
+                                   accept="image/png, image/jpg, image/jpeg, image/svg+xml">
                             @if ($errors->has('banner_image'))
                                 <div class="text-danger">{{ $errors->first('banner_image') }}</div>
                             @endif
