@@ -37,7 +37,7 @@ class PaymentController extends Controller
         $totalAmount = 0;
 
         $transaction = Transaction::create([
-            'status' => 'draft',
+            'status' => 'DRAFT',
         ]);
 
         foreach ($invoiceIds as $id) {
@@ -76,10 +76,28 @@ class PaymentController extends Controller
 
     public function callback(Request $request)
     {
-        // Handle the callback from N-Genius
-        // You can verify the payment status here and update your records accordingly
+        try {
+            if (!isset($request['order']['_embedded']['payment'][0]['orderReference']) ||
+                !isset($request['order']['_embedded']['payment'][0]['state'])) {
+                return response()->json(['error' => 'Invalid request data'], 400);
+            }
 
-        return response()->json(['message' => 'Payment completed successfully.']);
+            $orderReference = $request['order']['_embedded']['payment'][0]['orderReference'];
+            $state = $request['order']['_embedded']['payment'][0]['state'];
+
+            $transaction = Transaction::query()->where('order_reference', $orderReference)->first();
+
+            if (!$transaction) {
+                return response()->json(['error' => 'Transaction not found'], 404);
+            }
+
+            $transaction->status = $state;
+            $transaction->save();
+
+            return response()->json(['status' => $transaction->status], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 
     private function fetchInvoiceDetails($invoiceId)
@@ -136,5 +154,41 @@ class PaymentController extends Controller
 
             return null;
         }
+    }
+
+
+    public function getPaymentStatus(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'order_reference' => 'required|string|exists:transactions,order_reference',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+
+        $orderReference = $request->input('order_reference');
+        $payment = app()->make(NGeniusService::class);
+
+        try {
+            $statusResponse = $payment->getPaymentStatus($orderReference);
+            $state = $statusResponse['_embedded']['payment'][0]['state'];
+
+            $transaction = Transaction::query()->where('order_reference', $orderReference)->first();
+
+            if (!$transaction) {
+                return response()->json(['error' => 'Transaction not found'], 404);
+            }
+
+            if ($transaction->status !== $state) {
+                $transaction->status = $state;
+                $transaction->save();
+            }
+
+            return response()->json(['status' => $transaction->status], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+
     }
 }
