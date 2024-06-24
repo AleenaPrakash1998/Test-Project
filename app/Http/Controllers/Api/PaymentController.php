@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\invoice;
+use App\Models\Invoice;
 use App\Models\Transaction;
 use App\Models\Url;
 use App\Services\NGeniusService;
@@ -58,7 +58,7 @@ class PaymentController extends Controller
         try {
             $order = $payment->initiatePayment($totalAmount, 'AED');
 
-            if (! isset($order['_embedded']['payment'][0]['orderReference'])) {
+            if (!isset($order['_embedded']['payment'][0]['orderReference'])) {
                 throw new \Exception('Failed to retrieve order reference from payment response.');
             }
 
@@ -92,7 +92,7 @@ class PaymentController extends Controller
             $tokenResponse = Http::post($url->authentication_url);
             $authToken = $tokenResponse->json('access_token');
 
-            $apiUrl = $url->server_url.'/lvt_invoices';
+            $apiUrl = $url->server_url . '/lvt_invoices';
 
             $fetchXml = '<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
                        <entity name="lvt_invoice">
@@ -114,7 +114,7 @@ class PaymentController extends Controller
                        <attribute name="lvt_amount" />
                        <order attribute="lvt_name" descending="false" />
                        <filter type="and">
-                      <condition attribute="lvt_invoiceid" operator="eq" uitype="lvt_invoice" value="'.$invoiceId.'" />
+                      <condition attribute="lvt_invoiceid" operator="eq" uitype="lvt_invoice" value="' . $invoiceId . '" />
                       <condition attribute="statecode" operator="eq" value="0" />
                       </filter>
                      </entity>
@@ -124,15 +124,15 @@ class PaymentController extends Controller
 
             $invoices = $apiResponse->json();
 
-            if (! empty($invoices)) {
+            if (!empty($invoices)) {
                 return $invoices;
             } else {
-                Log::error('No invoice details found for invoice ID: '.$invoiceId);
+                Log::error('No invoice details found for invoice ID: ' . $invoiceId);
 
                 return null;
             }
         } catch (\Exception $e) {
-            Log::error('Failed to fetch invoice details: '.$e->getMessage());
+            Log::error('Failed to fetch invoice details: ' . $e->getMessage());
 
             return null;
         }
