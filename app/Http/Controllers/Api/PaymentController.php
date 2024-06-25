@@ -32,7 +32,7 @@ class PaymentController extends Controller
             'entity_id' => 'nullable|string',
             'redirect_url' => 'required|url',
             'cancel_url' => 'required|url',
-            'email' => 'required|email',
+            'email' => 'nullable|email',
         ]);
 
         if ($validator->fails()) {
