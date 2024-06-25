@@ -8,6 +8,7 @@ use App\Models\Invoice;
 use App\Models\Transaction;
 use App\Models\Url;
 use App\Services\NGeniusService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
@@ -23,7 +24,7 @@ class PaymentController extends Controller
         $this->ngeniusService = $ngeniusService;
     }
 
-    public function processPayment(Request $request)
+    public function processPayment(Request $request): JsonResponse
     {
         $validator = Validator::make($request->all(), [
             'invoice_ids' => 'required|array',
@@ -93,7 +94,7 @@ class PaymentController extends Controller
         }
     }
 
-    public function callback(Request $request)
+    public function callback(Request $request): JsonResponse
     {
         try {
             if (! isset($request['order']['_embedded']['payment'][0]['orderReference']) ||
@@ -175,7 +176,7 @@ class PaymentController extends Controller
         }
     }
 
-    public function getPaymentStatus(Request $request)
+    public function getPaymentStatus(Request $request): JsonResponse
     {
         $validator = Validator::make($request->all(), [
             'order_reference' => 'required|string|exists:transactions,order_reference',
