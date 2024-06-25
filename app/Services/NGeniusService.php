@@ -26,9 +26,9 @@ class NGeniusService
 
     public function getAccessToken()
     {
-        $response = $this->client->post($this->apiUrl.'/identity/auth/access-token', [
+        $response = $this->client->post($this->apiUrl . '/identity/auth/access-token', [
             'headers' => [
-                'Authorization' => 'Basic '.$this->apiKey,
+                'Authorization' => 'Basic ' . $this->apiKey,
                 'Content-Type' => 'application/vnd.ni-identity.v1+json',
                 'Accept' => 'application/vnd.ni-identity.v1+json',
             ],
@@ -39,13 +39,13 @@ class NGeniusService
         return $data['access_token'];
     }
 
-    public function initiatePayment($amount, $currency, $redirectUrl, $cancelUrl)
+    public function initiatePayment($amount, $currency, $redirectUrl, $cancelUrl, $email)
     {
         $accessToken = $this->getAccessToken();
 
-        $response = $this->client->post($this->apiUrl.'/transactions/outlets/'.$this->outletRefId.'/orders', [
+        $response = $this->client->post($this->apiUrl . '/transactions/outlets/' . $this->outletRefId . '/orders', [
             'headers' => [
-                'Authorization' => 'Bearer '.$accessToken,
+                'Authorization' => 'Bearer ' . $accessToken,
                 'Content-Type' => 'application/vnd.ni-payment.v2+json',
                 'Accept' => 'application/vnd.ni-payment.v2+json',
             ],
@@ -60,6 +60,7 @@ class NGeniusService
                     'skipConfirmationPage' => true,
                     'cancelUrl' => $cancelUrl,
                 ],
+                'emailAddress' => $email,
             ],
         ]);
 
@@ -70,9 +71,9 @@ class NGeniusService
     {
         $accessToken = $this->getAccessToken();
 
-        $response = $this->client->get($this->apiUrl.'/transactions/outlets/'.$this->outletRefId.'/orders/'.$orderReference, [
+        $response = $this->client->get($this->apiUrl . '/transactions/outlets/' . $this->outletRefId . '/orders/' . $orderReference, [
             'headers' => [
-                'Authorization' => 'Bearer '.$accessToken,
+                'Authorization' => 'Bearer ' . $accessToken,
                 'Content-Type' => 'application/vnd.ni-payment.v2+json',
                 'Accept' => 'application/vnd.ni-payment.v2+json',
             ],

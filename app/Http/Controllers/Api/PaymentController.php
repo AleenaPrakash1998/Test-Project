@@ -32,6 +32,7 @@ class PaymentController extends Controller
             'entity_id' => 'nullable|string',
             'redirect_url' => 'required|url',
             'cancel_url' => 'required|url',
+            'email' => 'required|email',
         ]);
 
         if ($validator->fails()) {
@@ -81,7 +82,8 @@ class PaymentController extends Controller
         try {
             $redirectUrl = $request->input('redirect_url');
             $cancelUrl = $request->input('cancel_url');
-            $order = $payment->initiatePayment($totalAmount, 'AED', $redirectUrl, $cancelUrl);
+            $email = $request->input('email');
+            $order = $payment->initiatePayment($totalAmount, 'AED', $redirectUrl, $cancelUrl, $email);
 
             if (!isset($order['_embedded']['payment'][0]['orderReference'])) {
                 throw new \Exception('Failed to retrieve order reference from payment response.');
