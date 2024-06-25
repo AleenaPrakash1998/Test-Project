@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Url;
 use GuzzleHttp\Client;
 
 class NGeniusService
@@ -14,19 +15,20 @@ class NGeniusService
 
     protected $outletRefId;
 
-    public function __construct()
+    public function __construct($apiKey = null, $outletRefId = null)
     {
+        $url = Url::query()->first();
         $this->client = new Client();
-        $this->apiUrl = config('services.ngenius.api_url');
-        $this->apiKey = config('services.ngenius.api_key');
-        $this->outletRefId = config('services.ngenius.outlet_reference_id');
+        $this->apiUrl = $url->payment_base_url;
+        $this->apiKey = $apiKey ?? $url->api_key;
+        $this->outletRefId = $outletRefId ?? $url->reference_key;
     }
 
     public function getAccessToken()
     {
-        $response = $this->client->post($this->apiUrl . '/identity/auth/access-token', [
+        $response = $this->client->post($this->apiUrl.'/identity/auth/access-token', [
             'headers' => [
-                'Authorization' => 'Basic ' . $this->apiKey,
+                'Authorization' => 'Basic '.$this->apiKey,
                 'Content-Type' => 'application/vnd.ni-identity.v1+json',
                 'Accept' => 'application/vnd.ni-identity.v1+json',
             ],
@@ -41,9 +43,9 @@ class NGeniusService
     {
         $accessToken = $this->getAccessToken();
 
-        $response = $this->client->post($this->apiUrl . '/transactions/outlets/' . $this->outletRefId . '/orders', [
+        $response = $this->client->post($this->apiUrl.'/transactions/outlets/'.$this->outletRefId.'/orders', [
             'headers' => [
-                'Authorization' => 'Bearer ' . $accessToken,
+                'Authorization' => 'Bearer '.$accessToken,
                 'Content-Type' => 'application/vnd.ni-payment.v2+json',
                 'Accept' => 'application/vnd.ni-payment.v2+json',
             ],
@@ -54,8 +56,9 @@ class NGeniusService
                     'value' => $amount * 100,
                 ],
                 'merchantAttributes' => [
-                    'redirectUrl' => "http://192.168.0.167:4200/contracts",
-                    "skipConfirmationPage" => true,
+                    'redirectUrl' => 'http://192.168.0.167:4200/contracts',
+                    'skipConfirmationPage' => true,
+                    'cancelUrl' => 'http://192.168.0.167:4200/home',
                 ],
             ],
         ]);
@@ -67,9 +70,9 @@ class NGeniusService
     {
         $accessToken = $this->getAccessToken();
 
-        $response = $this->client->get($this->apiUrl . '/transactions/outlets/' . $this->outletRefId . '/orders/' . $orderReference, [
+        $response = $this->client->get($this->apiUrl.'/transactions/outlets/'.$this->outletRefId.'/orders/'.$orderReference, [
             'headers' => [
-                'Authorization' => 'Bearer ' . $accessToken,
+                'Authorization' => 'Bearer '.$accessToken,
                 'Content-Type' => 'application/vnd.ni-payment.v2+json',
                 'Accept' => 'application/vnd.ni-payment.v2+json',
             ],

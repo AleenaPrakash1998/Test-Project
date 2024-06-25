@@ -34,11 +34,4 @@ return [
     'token' => [
         'key' => env('TOKEN_KEY'),
     ],
-
-    'ngenius' => [
-        'api_url' => env('NGENIUS_API_URL'),
-        'api_key' => env('NGENIUS_API_KEY'),
-        'outlet_reference_id' => env('NGENIUS_OUTLET_REFERENCE_ID'),
-    ],
-
 ];
