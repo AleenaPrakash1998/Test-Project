@@ -39,7 +39,7 @@ class NGeniusService
         return $data['access_token'];
     }
 
-    public function initiatePayment($amount, $currency, $redirectUrl = null)
+    public function initiatePayment($amount, $currency, $redirectUrl, $cancelUrl)
     {
         $accessToken = $this->getAccessToken();
 
@@ -56,9 +56,9 @@ class NGeniusService
                     'value' => $amount * 100,
                 ],
                 'merchantAttributes' => [
-                    'redirectUrl' => 'http://192.168.0.167:4200/contracts',
+                    'redirectUrl' => $redirectUrl,
                     'skipConfirmationPage' => true,
-                    'cancelUrl' => 'http://192.168.0.167:4200/home',
+                    'cancelUrl' => $cancelUrl,
                 ],
             ],
         ]);

@@ -29,6 +29,9 @@ class PaymentController extends Controller
         $validator = Validator::make($request->all(), [
             'invoice_ids' => 'required|array',
             'invoce_ids.*' => 'required|string',
+            'entity_id' => 'nullable|string',
+            'redirect_url' => 'required|url',
+            'cancel_url' => 'required|url',
         ]);
 
         if ($validator->fails()) {
@@ -76,7 +79,9 @@ class PaymentController extends Controller
         }
 
         try {
-            $order = $payment->initiatePayment($totalAmount, 'AED');
+            $redirectUrl = $request->input('redirect_url');
+            $cancelUrl = $request->input('cancel_url');
+            $order = $payment->initiatePayment($totalAmount, 'AED', $redirectUrl, $cancelUrl);
 
             if (! isset($order['_embedded']['payment'][0]['orderReference'])) {
                 throw new \Exception('Failed to retrieve order reference from payment response.');
