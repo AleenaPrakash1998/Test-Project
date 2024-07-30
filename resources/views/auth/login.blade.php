@@ -6,17 +6,15 @@
                 <div class="card-body mt-2 d-flex">
                     <div class="mt-4">
                         <div class="app-brand justify-content-center text-center">
-                            {{--                        <a href="index.html" class="app-brand-link gap-2">--}}
                             <span class="app-brand-text demo text-body fw-bold">
-                                <img src="{{ asset('assets/img/logo/logo.png') }}" class="w-50 h-50">
+                                <h1 class="text-uppercase">SHOP EASE</h1>
                         <hr/>
                             </span>
-                            {{--                        </a>--}}
                         </div>
-                        <div class="text-center p-3">
-                            <h4 class="mb-2 text-secondary">Welcome to Shamal</h4>
-                            <p class="text-secondary">Login to continue your account</p>
-                        </div>
+                        {{--                        <div class="text-center p-3">--}}
+                        {{--                            <h4 class="mb-2 text-secondary">Welcome to ShopEase</h4>--}}
+                        {{--                            <p class="text-secondary">Login to continue your account</p>--}}
+                        {{--                        </div>--}}
                         <form id="formAuthentication" class="mb-3" method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="mb-3">
@@ -48,9 +46,12 @@
                                 </x-primary-button>
                             </div>
                         </form>
+                        <div class="text-center p-3">
+                            <p class="text-secondary">You don't have an account? <a href="{{ route('register') }}">Register!</a></p>
+                        </div>
                     </div>
                     <div class="px-2 ms-4">
-                        <img src="{{ asset('assets/img/banners/banner.png') }}" class="w-100 h-100">
+                        <img src="{{ asset('assets/img/banners/banner.jpg') }}" class="w-100 h-100">
                     </div>
                 </div>
 

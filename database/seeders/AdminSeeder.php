@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -12,10 +13,17 @@ class AdminSeeder extends Seeder
 
     public function run(): void
     {
-        DB::table('users')->insert([
+        $userId = DB::table('users')->insertGetId([
             'name' => "Admin",
-            'email' => 'admin@shamal.com',
+            'email' => 'admin@ecommerce.com',
             'password' => Hash::make('password'),
         ]);
+
+        $admin = User::find($userId);
+
+        if ($admin) {
+            $admin->assignRole('admin');
+        }
+
     }
 }

@@ -29,7 +29,7 @@
 
 </head>
 <body
-    style="background: url('{{asset('assets/img/backgrounds/background.png')}}');background-repeat: no-repeat;background-size: cover">
+    style="background: url('{{asset('assets/img/backgrounds/ecom.jpeg')}}');background-repeat: no-repeat;background-size: cover">
             {{$slot}}
 </body>
 </html>

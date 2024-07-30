@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
@@ -25,11 +25,29 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+        $this->validateLogin($request);
 
-        $request->session()->regenerate();
+        if (Auth::attempt($this->credentials($request))) {
+            $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+            // Redirect based on user role
+
+            $user = Auth::user();
+            if ($user->hasRole('admin')) {
+                return redirect()->route('vendors.index');
+            } elseif ($user->hasRole('vendor')) {
+                return redirect()->route('vendor-products.index');
+            } elseif ($user->hasRole('customer')) {
+                return redirect()->route('customer-products.index');
+            }
+
+            // Default redirect
+            return redirect()->intended('/');
+        }
+
+        throw ValidationException::withMessages([
+            'email' => __('auth.failed'),
+        ]);
     }
 
     /**
@@ -44,5 +62,24 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+
+    /**
+     * Validate the user's login request.
+     */
+    protected function validateLogin(LoginRequest $request)
+    {
+        $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+    }
+
+    /**
+     * Get the credentials from the request.
+     */
+    protected function credentials(LoginRequest $request)
+    {
+        return $request->only('email', 'password');
     }
 }
